@@ -11,7 +11,11 @@
 		6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA2B2A2E0830006F549D /* ContentView.swift */; };
 		6286EA2E2A2E0831006F549D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6286EA2D2A2E0831006F549D /* Assets.xcassets */; };
 		6286EA312A2E0831006F549D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6286EA302A2E0831006F549D /* Preview Assets.xcassets */; };
-		62FFB1512A2E17D000854476 /* HotspotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FFB1502A2E17D000854476 /* HotspotHelper.swift */; };
+		62FFB1512A2E17D000854476 /* WifiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FFB1502A2E17D000854476 /* WifiHelper.swift */; };
+		62FFB1592A2F275E00854476 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FFB1582A2F275E00854476 /* TestView.swift */; };
+		62FFB15B2A2F45B400854476 /* Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FFB15A2A2F45B400854476 /* Wifi.swift */; };
+		62FFB15D2A2F626900854476 /* WifiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FFB15C2A2F626900854476 /* WifiState.swift */; };
+		62FFB1622A2F7F0500854476 /* WifiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FFB1612A2F7F0500854476 /* WifiViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +26,11 @@
 		6286EA302A2E0831006F549D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6286EA322A2E0831006F549D /* wifitalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wifitalk.entitlements; sourceTree = "<group>"; };
 		62FFB14D2A2E15EA00854476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		62FFB1502A2E17D000854476 /* HotspotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotHelper.swift; sourceTree = "<group>"; };
+		62FFB1502A2E17D000854476 /* WifiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiHelper.swift; sourceTree = "<group>"; };
+		62FFB1582A2F275E00854476 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		62FFB15A2A2F45B400854476 /* Wifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wifi.swift; sourceTree = "<group>"; };
+		62FFB15C2A2F626900854476 /* WifiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiState.swift; sourceTree = "<group>"; };
+		62FFB1612A2F7F0500854476 /* WifiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +63,9 @@
 		6286EA282A2E0830006F549D /* wifitalk */ = {
 			isa = PBXGroup;
 			children = (
-				62FFB14E2A2E17AB00854476 /* module */,
+				62FFB1602A2F7EF900854476 /* ViewModel */,
+				62FFB1522A2F270600854476 /* View */,
+				62FFB14E2A2E17AB00854476 /* Module */,
 				62FFB14D2A2E15EA00854476 /* Info.plist */,
 				6286EA292A2E0830006F549D /* wifitalkApp.swift */,
 				6286EA2B2A2E0830006F549D /* ContentView.swift */,
@@ -74,20 +84,46 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		62FFB14E2A2E17AB00854476 /* module */ = {
+		62FFB14E2A2E17AB00854476 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				62FFB14F2A2E17B600854476 /* hotspot */,
+				62FFB14F2A2E17B600854476 /* WIfi */,
 			);
-			path = module;
+			path = Module;
 			sourceTree = "<group>";
 		};
-		62FFB14F2A2E17B600854476 /* hotspot */ = {
+		62FFB14F2A2E17B600854476 /* WIfi */ = {
 			isa = PBXGroup;
 			children = (
-				62FFB1502A2E17D000854476 /* HotspotHelper.swift */,
+				62FFB1502A2E17D000854476 /* WifiHelper.swift */,
+				62FFB15A2A2F45B400854476 /* Wifi.swift */,
+				62FFB15C2A2F626900854476 /* WifiState.swift */,
 			);
-			path = hotspot;
+			path = WIfi;
+			sourceTree = "<group>";
+		};
+		62FFB1522A2F270600854476 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62FFB1532A2F271500854476 /* Test */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62FFB1532A2F271500854476 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				62FFB1582A2F275E00854476 /* TestView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		62FFB1602A2F7EF900854476 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				62FFB1612A2F7F0500854476 /* WifiViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +196,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62FFB1512A2E17D000854476 /* HotspotHelper.swift in Sources */,
+				62FFB1592A2F275E00854476 /* TestView.swift in Sources */,
+				62FFB1622A2F7F0500854476 /* WifiViewModel.swift in Sources */,
+				62FFB15B2A2F45B400854476 /* Wifi.swift in Sources */,
+				62FFB15D2A2F626900854476 /* WifiState.swift in Sources */,
+				62FFB1512A2E17D000854476 /* WifiHelper.swift in Sources */,
 				6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */,
 				6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */,
 			);

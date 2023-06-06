@@ -12,6 +12,8 @@ struct wifitalkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(WifiViewModel(wifiHelper: WifiHelperMock())
+            )
         }
     }
 }
