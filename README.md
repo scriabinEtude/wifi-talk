@@ -17,3 +17,8 @@
 부가기능
 - 와이파이 방장..?
 - 방장 공지
+
+
+### Links
+
+- [초안 기획 스케치](https://ovenapp.io/project/83Rcrlzv9EwDmIvBKybY5fD65kIoQKeF#uOKG6)
