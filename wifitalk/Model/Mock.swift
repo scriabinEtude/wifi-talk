@@ -14,7 +14,7 @@ struct Mock {
         WifiState(connected: false, wifi: nil),
     ]
     
-    static let user = User(name: "test user", profileImage: "G1293829382")
+//    static let user = User(name: "test user", profileImage: "G1293829382")
     
     static var binaryProfile: BinaryProfile {
         BinaryProfileGenerator().generate49()

@@ -32,13 +32,13 @@ struct ChatListView: View {
                 
                 Spacer()
             }
-            .toolbar {
-                NavigationLink(destination: { SettingView() }) {
-                    HStack {
-                        Text(Mock.user.name).foregroundColor(Color.black)
-                    }
-                }
-            }
+//            .toolbar {
+//                NavigationLink(destination: { SettingView() }) {
+//                    HStack {
+//                        Text(Mock.user.name).foregroundColor(Color.black)
+//                    }
+//                }
+//            }
         }
         
         
