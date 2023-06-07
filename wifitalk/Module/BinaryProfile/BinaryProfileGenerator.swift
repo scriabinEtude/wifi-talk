@@ -8,12 +8,12 @@
 import Foundation
 
 struct BinaryProfileGenerator {
-    private let prefix = "G"
+    private static let prefix = "G"
     
     func generate49() -> BinaryProfile {
         return BinaryProfile(
             source:
-                self.prefix + self.getRGB() + self.getDigits(7)
+                Self.prefix + self.getRGB() + self.getDigits(7)
         )
     }
     
@@ -44,5 +44,9 @@ struct BinaryProfileGenerator {
         return (0..<length)
             .map({ _ in String(Int.random(in: (0...1))) })
             .joined(separator: "")
+    }
+    
+    static func isBinaryProfile(_ source: String) -> Bool {
+        return source.starts(with: Self.prefix)
     }
 }

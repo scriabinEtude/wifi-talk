@@ -19,4 +19,8 @@ struct Mock {
     static var binaryProfile: BinaryProfile {
         BinaryProfileGenerator().generate49()
     }
+    
+    static var profileImage: ProfileImage {
+        ProfileImage(binaryProfile: BinaryProfileGenerator().generate49())
+    }
 }

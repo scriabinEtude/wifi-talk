@@ -21,9 +21,6 @@ struct BinaryProfileView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(Color(red: profile.r.rgbRatio(), green: profile.g.rgbRatio(), blue: profile.b.rgbRatio()).description)
-            Text(size.description)
-            Text(rectangleSize.description)
             ForEach(0..<profile.edgeSize, id: \.self) { i in
                 HStack(spacing: 0) {
                     ForEach(0..<profile.edgeSize, id: \.self) { j in
@@ -33,7 +30,7 @@ struct BinaryProfileView: View {
                     }
                 }
             }
-        }.frame(width: size, height: size)
+        }
     }
 }
 

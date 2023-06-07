@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct SettingView: View {
+    @State var name: String = ""
+    
     var body: some View {
-        Text("Hello, World")
+        VStack(spacing: 50) {
+            VStack {
+                ProfileImageView(profileImage: Mock.profileImage)
+                Button(action: {
+                    
+                }, label: {
+                    Label("Edit", systemImage: "pencil")
+                })
+            }.padding(.top, 50)
+            
+            HStack {
+                Text("별명")
+                Spacer()
+                TextField(
+                    "별명",
+                    text: $name
+                ).multilineTextAlignment(.trailing)
+            }.padding()
+            Spacer()
+        }
     }
 }
 
