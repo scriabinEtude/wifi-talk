@@ -19,4 +19,8 @@ struct Wifi: Equatable {
     static func == (lhs: Wifi, rhs: Wifi) -> Bool {
         return lhs.ssid == rhs.ssid
     }
+    
+    static func != (lhs: Wifi, rhs: Wifi) -> Bool {
+        return !(lhs == rhs)
+    }
 }

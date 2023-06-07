@@ -17,7 +17,11 @@ struct WifiState: Equatable {
     }
     
     static func == (lhs: WifiState, rhs: WifiState) -> Bool {
-        return lhs.connected == rhs.connected
-        && lhs.wifi == lhs.wifi
+        return (lhs.connected == rhs.connected && lhs.wifi == rhs.wifi)
     }
+    
+    static func != (lhs: WifiState, rhs: WifiState) -> Bool {
+        return !(lhs == rhs)
+    }
+    
 }

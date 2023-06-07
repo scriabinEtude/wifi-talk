@@ -11,7 +11,7 @@ import SwiftUI
 struct wifitalkApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ChatListView()
                 .environmentObject(WifiViewModel(wifiHelper: WifiHelperMock())
             )
         }

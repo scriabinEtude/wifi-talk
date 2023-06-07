@@ -13,17 +13,28 @@ import Combine
 
 protocol WifiHelper {
     func getWifiState() -> WifiState
+    func saveWifi(_ wifi: Wifi) -> Void
+    func fetchWifis() -> [Wifi]
 }
 
 class WifiHelperMock: WifiHelper {
     
     func getWifiState() -> WifiState {
         if Calendar.current.component(.second, from: Date()) / 2 % 2 == 0 {
-            return WifiState(connected: true, wifi: Wifi(name: "test name 1", ssid: "test ssid 1"))
+            return Mock.wifiStates[0]
         } else {
-            return WifiState(connected: true, wifi: Wifi(name: "test name 2", ssid: "test ssid 2"))
+            return Mock.wifiStates[1]
         }
+    }
+    
+    func saveWifi(_ wifi: Wifi) {
         
+    }
+    
+    func fetchWifis() -> [Wifi] {
+        return Mock.wifiStates
+            .filter({ $0.wifi != nil })
+            .map({ $0.wifi! })
     }
 }
 

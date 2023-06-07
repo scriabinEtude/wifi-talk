@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6249F8602A300BAD00E9E99D /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6249F85F2A300BAD00E9E99D /* ChatListView.swift */; };
+		6249F8622A300CFD00E9E99D /* ChatListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6249F8612A300CFD00E9E99D /* ChatListItem.swift */; };
+		6249F8652A30137900E9E99D /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6249F8642A30137900E9E99D /* Mock.swift */; };
+		625FDD282A302C3800B32EA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD272A302C3800B32EA8 /* User.swift */; };
+		625FDD2B2A302D2500B32EA8 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD2A2A302D2500B32EA8 /* SettingView.swift */; };
+		625FDD2D2A302DD500B32EA8 /* ChatHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD2C2A302DD500B32EA8 /* ChatHistoryItem.swift */; };
+		625FDD302A3033F900B32EA8 /* BinaryProfileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD2F2A3033F900B32EA8 /* BinaryProfileGenerator.swift */; };
+		625FDD322A30346D00B32EA8 /* BinaryProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD312A30346D00B32EA8 /* BinaryProfile.swift */; };
+		625FDD352A304EBC00B32EA8 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD342A304EBC00B32EA8 /* StringUtil.swift */; };
+		625FDD372A3055D800B32EA8 /* BinaryProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD362A3055D800B32EA8 /* BinaryProfileView.swift */; };
+		625FDD392A30571500B32EA8 /* IntUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD382A30571500B32EA8 /* IntUtil.swift */; };
+		625FDD3B2A30578200B32EA8 /* DoubleUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD3A2A30578200B32EA8 /* DoubleUtil.swift */; };
 		6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA292A2E0830006F549D /* wifitalkApp.swift */; };
 		6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA2B2A2E0830006F549D /* ContentView.swift */; };
 		6286EA2E2A2E0831006F549D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6286EA2D2A2E0831006F549D /* Assets.xcassets */; };
@@ -19,6 +31,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6249F85F2A300BAD00E9E99D /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		6249F8612A300CFD00E9E99D /* ChatListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListItem.swift; sourceTree = "<group>"; };
+		6249F8642A30137900E9E99D /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		625FDD272A302C3800B32EA8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		625FDD2A2A302D2500B32EA8 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		625FDD2C2A302DD500B32EA8 /* ChatHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryItem.swift; sourceTree = "<group>"; };
+		625FDD2F2A3033F900B32EA8 /* BinaryProfileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryProfileGenerator.swift; sourceTree = "<group>"; };
+		625FDD312A30346D00B32EA8 /* BinaryProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryProfile.swift; sourceTree = "<group>"; };
+		625FDD342A304EBC00B32EA8 /* StringUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
+		625FDD362A3055D800B32EA8 /* BinaryProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryProfileView.swift; sourceTree = "<group>"; };
+		625FDD382A30571500B32EA8 /* IntUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntUtil.swift; sourceTree = "<group>"; };
+		625FDD3A2A30578200B32EA8 /* DoubleUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleUtil.swift; sourceTree = "<group>"; };
 		6286EA262A2E0830006F549D /* wifitalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wifitalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6286EA292A2E0830006F549D /* wifitalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wifitalkApp.swift; sourceTree = "<group>"; };
 		6286EA2B2A2E0830006F549D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +68,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6249F85E2A300B9D00E9E99D /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				6249F85F2A300BAD00E9E99D /* ChatListView.swift */,
+				6249F8612A300CFD00E9E99D /* ChatListItem.swift */,
+				625FDD2C2A302DD500B32EA8 /* ChatHistoryItem.swift */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		6249F8632A30136D00E9E99D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6249F8642A30137900E9E99D /* Mock.swift */,
+				625FDD272A302C3800B32EA8 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		625FDD292A302CE800B32EA8 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				625FDD2A2A302D2500B32EA8 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		625FDD2E2A3033C700B32EA8 /* BinaryProfile */ = {
+			isa = PBXGroup;
+			children = (
+				625FDD2F2A3033F900B32EA8 /* BinaryProfileGenerator.swift */,
+				625FDD312A30346D00B32EA8 /* BinaryProfile.swift */,
+				625FDD362A3055D800B32EA8 /* BinaryProfileView.swift */,
+			);
+			path = BinaryProfile;
+			sourceTree = "<group>";
+		};
+		625FDD332A304EA700B32EA8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				625FDD342A304EBC00B32EA8 /* StringUtil.swift */,
+				625FDD382A30571500B32EA8 /* IntUtil.swift */,
+				625FDD3A2A30578200B32EA8 /* DoubleUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		6286EA1D2A2E0830006F549D = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +134,8 @@
 		6286EA282A2E0830006F549D /* wifitalk */ = {
 			isa = PBXGroup;
 			children = (
+				625FDD332A304EA700B32EA8 /* Util */,
+				6249F8632A30136D00E9E99D /* Model */,
 				62FFB1602A2F7EF900854476 /* ViewModel */,
 				62FFB1522A2F270600854476 /* View */,
 				62FFB14E2A2E17AB00854476 /* Module */,
@@ -87,6 +160,7 @@
 		62FFB14E2A2E17AB00854476 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				625FDD2E2A3033C700B32EA8 /* BinaryProfile */,
 				62FFB14F2A2E17B600854476 /* WIfi */,
 			);
 			path = Module;
@@ -105,6 +179,8 @@
 		62FFB1522A2F270600854476 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				625FDD292A302CE800B32EA8 /* Setting */,
+				6249F85E2A300B9D00E9E99D /* ChatList */,
 				62FFB1532A2F271500854476 /* Test */,
 			);
 			path = View;
@@ -196,13 +272,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				625FDD352A304EBC00B32EA8 /* StringUtil.swift in Sources */,
 				62FFB1592A2F275E00854476 /* TestView.swift in Sources */,
+				625FDD302A3033F900B32EA8 /* BinaryProfileGenerator.swift in Sources */,
+				625FDD372A3055D800B32EA8 /* BinaryProfileView.swift in Sources */,
+				6249F8652A30137900E9E99D /* Mock.swift in Sources */,
 				62FFB1622A2F7F0500854476 /* WifiViewModel.swift in Sources */,
+				6249F8622A300CFD00E9E99D /* ChatListItem.swift in Sources */,
 				62FFB15B2A2F45B400854476 /* Wifi.swift in Sources */,
 				62FFB15D2A2F626900854476 /* WifiState.swift in Sources */,
+				625FDD2D2A302DD500B32EA8 /* ChatHistoryItem.swift in Sources */,
+				6249F8602A300BAD00E9E99D /* ChatListView.swift in Sources */,
 				62FFB1512A2E17D000854476 /* WifiHelper.swift in Sources */,
 				6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */,
+				625FDD3B2A30578200B32EA8 /* DoubleUtil.swift in Sources */,
+				625FDD392A30571500B32EA8 /* IntUtil.swift in Sources */,
+				625FDD2B2A302D2500B32EA8 /* SettingView.swift in Sources */,
 				6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */,
+				625FDD322A30346D00B32EA8 /* BinaryProfile.swift in Sources */,
+				625FDD282A302C3800B32EA8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

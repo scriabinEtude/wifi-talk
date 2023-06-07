@@ -9,8 +9,9 @@ import SwiftUI
 import Combine
 
 class WifiViewModel: ObservableObject {
-    @Published var isWifiStateChanged: Bool
-    var wifiState: WifiState
+    @Published var wifiState: WifiState
+    @Published var wifiHistory = [Wifi]()
+    var isWifiStateChanged: Bool
     let wifiHelper: WifiHelper
     var wifiPublisherCancellable: AnyCancellable?
     
@@ -19,6 +20,7 @@ class WifiViewModel: ObservableObject {
         self.isWifiStateChanged = false
         self.wifiHelper = wifiHelper
         setWifiStatePublisher()
+        setWifiHistory()
     }
     
     func setWifiStatePublisher() {
@@ -27,11 +29,13 @@ class WifiViewModel: ObservableObject {
             .autoconnect()
             .sink { _ in
                 let wifiState = self.wifiHelper.getWifiState()
-                self.isWifiStateChanged = self.wifiState == wifiState
+                self.isWifiStateChanged = self.wifiState != wifiState
                 self.wifiState = wifiState
-                print(self.wifiState)
-                print(self.isWifiStateChanged)
             }
+    }
+    
+    func setWifiHistory() {
+        wifiHistory = self.wifiHelper.fetchWifis()
     }
         
 }
