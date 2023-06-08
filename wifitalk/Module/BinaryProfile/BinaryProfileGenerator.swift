@@ -10,20 +10,20 @@ import Foundation
 struct BinaryProfileGenerator {
     private static let prefix = "G"
     
-    func generate49() -> BinaryProfile {
+    static func generate49() -> BinaryProfile {
         return BinaryProfile(
             source:
                 Self.prefix + self.getRGB() + self.getDigits(7)
         )
     }
     
-    private func getRGB() -> String {
+    static private func getRGB() -> String {
         return Int.random(in: (0...255)).description.leftPadding(toLength: 3, withPad: "0")
         + Int.random(in: (0...255)).description.leftPadding(toLength: 3, withPad: "0")
         + Int.random(in: (0...255)).description.leftPadding(toLength: 3, withPad: "0")
     }
     
-    private func getDigits(_ odd: Int) -> String {
+    static private func getDigits(_ odd: Int) -> String {
         assert(odd % 2 == 1, "parameter odd should be odd number")
         var columns = [String]()
         let even = (odd - 1) / 2
@@ -40,7 +40,7 @@ struct BinaryProfileGenerator {
         
     }
     
-    private func getColumn(_ length: Int) -> String {
+    static private func getColumn(_ length: Int) -> String {
         return (0..<length)
             .map({ _ in String(Int.random(in: (0...1))) })
             .joined(separator: "")

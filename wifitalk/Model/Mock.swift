@@ -17,10 +17,10 @@ struct Mock {
 //    static let user = User(name: "test user", profileImage: "G1293829382")
     
     static var binaryProfile: BinaryProfile {
-        BinaryProfileGenerator().generate49()
+        BinaryProfileGenerator.generate49()
     }
     
     static var profileImage: ProfileImage {
-        ProfileImage(binaryProfile: BinaryProfileGenerator().generate49())
+        ProfileImage(binaryProfile: BinaryProfileGenerator.generate49())
     }
 }

@@ -26,6 +26,7 @@
 		625FDD4C2A31185400B32EA8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD4B2A31185400B32EA8 /* DataController.swift */; };
 		625FDD4E2A311BA700B32EA8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD4D2A311BA700B32EA8 /* UserViewModel.swift */; };
 		625FDD502A31B2DE00B32EA8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD4F2A31B2DE00B32EA8 /* AppState.swift */; };
+		625FDD532A31C07C00B32EA8 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD522A31C07C00B32EA8 /* UpdateProfileView.swift */; };
 		6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA292A2E0830006F549D /* wifitalkApp.swift */; };
 		6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA2B2A2E0830006F549D /* ContentView.swift */; };
 		6286EA2E2A2E0831006F549D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6286EA2D2A2E0831006F549D /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		625FDD4B2A31185400B32EA8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		625FDD4D2A311BA700B32EA8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		625FDD4F2A31B2DE00B32EA8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		625FDD522A31C07C00B32EA8 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 		6286EA262A2E0830006F549D /* wifitalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wifitalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6286EA292A2E0830006F549D /* wifitalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wifitalkApp.swift; sourceTree = "<group>"; };
 		6286EA2B2A2E0830006F549D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				625FDD2A2A302D2500B32EA8 /* SettingView.swift */,
-				625FDD3C2A3078F100B32EA8 /* ProfileImageView.swift */,
+				625FDD522A31C07C00B32EA8 /* UpdateProfileView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -138,6 +140,14 @@
 				625FDD4B2A31185400B32EA8 /* DataController.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		625FDD512A31B6E500B32EA8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				625FDD3C2A3078F100B32EA8 /* ProfileImageView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		6286EA1D2A2E0830006F549D = {
@@ -206,6 +216,7 @@
 		62FFB1522A2F270600854476 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				625FDD512A31B6E500B32EA8 /* Components */,
 				625FDD292A302CE800B32EA8 /* Setting */,
 				6249F85E2A300B9D00E9E99D /* ChatList */,
 				62FFB1532A2F271500854476 /* Test */,
@@ -326,6 +337,7 @@
 				6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */,
 				625FDD502A31B2DE00B32EA8 /* AppState.swift in Sources */,
 				625FDD4E2A311BA700B32EA8 /* UserViewModel.swift in Sources */,
+				625FDD532A31C07C00B32EA8 /* UpdateProfileView.swift in Sources */,
 				625FDD322A30346D00B32EA8 /* BinaryProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
