@@ -17,7 +17,10 @@ struct ChatListView: View {
                 VStack(alignment: .leading) {
                     if wifiViewModel.wifiState.connected {
                         Label("현재 접속된 Wifi", systemImage: "wifi").padding()
-                        ChatListItem(wifi: wifiViewModel.wifiState.wifi!)
+                        ChatListItem(
+                            wifi: wifiViewModel.wifiState.wifi!,
+                            user: userViewModel.user!
+                        )
                     } else {
                         Label("Wifi 없음", systemImage: "wifi.slash").padding()
                         HStack{ Spacer() }

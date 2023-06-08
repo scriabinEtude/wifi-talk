@@ -20,11 +20,12 @@ protocol WifiHelper {
 class WifiHelperMock: WifiHelper {
     
     func getWifiState() -> WifiState {
-        if Calendar.current.component(.second, from: Date()) / 2 % 2 == 0 {
-            return Mock.wifiStates[0]
-        } else {
-            return Mock.wifiStates[1]
-        }
+        return Mock.wifiStates[0]
+//        if Calendar.current.component(.second, from: Date()) / 2 % 2 == 0 {
+//            return Mock.wifiStates[0]
+//        } else {
+//            return Mock.wifiStates[1]
+//        }
     }
     
     func saveWifi(_ wifi: Wifi) {

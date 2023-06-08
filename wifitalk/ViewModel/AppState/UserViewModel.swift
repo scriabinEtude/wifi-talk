@@ -20,7 +20,7 @@ class UserViewModel: ObservableObject {
         self.user = self.userController.fetch()
                  ?? self.userController.update(
                          name: "",
-                         profileImage: BinaryProfileGenerator.generate49().source
+                         profileImage: BinaryProfileGenerator.generateBase64()
                  )
     }
     

@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class UserController: DataController {
     
@@ -31,6 +32,9 @@ class UserController: DataController {
     
     func update(name: String?, profileImage: String?) -> User {
         let user = self.fetch() ?? User(context: context)
+        if user.uuid == nil {
+            user.uuid = UIDevice.current.identifierForVendor?.uuidString
+        }
         if name != nil { user.name = name }
         if profileImage != nil { user.profileImage = profileImage }
         self.saveContext(context)

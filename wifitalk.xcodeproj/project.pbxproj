@@ -27,6 +27,14 @@
 		625FDD4E2A311BA700B32EA8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD4D2A311BA700B32EA8 /* UserViewModel.swift */; };
 		625FDD502A31B2DE00B32EA8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD4F2A31B2DE00B32EA8 /* AppState.swift */; };
 		625FDD532A31C07C00B32EA8 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD522A31C07C00B32EA8 /* UpdateProfileView.swift */; };
+		625FDD562A31D4FC00B32EA8 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD552A31D4FC00B32EA8 /* ChatView.swift */; };
+		625FDD592A31D56000B32EA8 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD582A31D56000B32EA8 /* ChatViewModel.swift */; };
+		625FDD5B2A31D66800B32EA8 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD5A2A31D66800B32EA8 /* ChatMessage.swift */; };
+		625FDD5D2A31D77F00B32EA8 /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD5C2A31D77F00B32EA8 /* ChatMessageView.swift */; };
+		625FDD5F2A31D8D100B32EA8 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD5E2A31D8D100B32EA8 /* MessageInputView.swift */; };
+		625FDD612A31E05800B32EA8 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD602A31E05800B32EA8 /* ViewUtil.swift */; };
+		625FDD632A31EEEB00B32EA8 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD622A31EEEB00B32EA8 /* ChatBubble.swift */; };
+		625FDD652A320F3700B32EA8 /* ScrollPositionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD642A320F3700B32EA8 /* ScrollPositionReader.swift */; };
 		6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA292A2E0830006F549D /* wifitalkApp.swift */; };
 		6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA2B2A2E0830006F549D /* ContentView.swift */; };
 		6286EA2E2A2E0831006F549D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6286EA2D2A2E0831006F549D /* Assets.xcassets */; };
@@ -59,6 +67,14 @@
 		625FDD4D2A311BA700B32EA8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		625FDD4F2A31B2DE00B32EA8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		625FDD522A31C07C00B32EA8 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
+		625FDD552A31D4FC00B32EA8 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		625FDD582A31D56000B32EA8 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		625FDD5A2A31D66800B32EA8 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		625FDD5C2A31D77F00B32EA8 /* ChatMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageView.swift; sourceTree = "<group>"; };
+		625FDD5E2A31D8D100B32EA8 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
+		625FDD602A31E05800B32EA8 /* ViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
+		625FDD622A31EEEB00B32EA8 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
+		625FDD642A320F3700B32EA8 /* ScrollPositionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPositionReader.swift; sourceTree = "<group>"; };
 		6286EA262A2E0830006F549D /* wifitalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wifitalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6286EA292A2E0830006F549D /* wifitalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wifitalkApp.swift; sourceTree = "<group>"; };
 		6286EA2B2A2E0830006F549D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +115,7 @@
 			children = (
 				6249F8642A30137900E9E99D /* Mock.swift */,
 				625FDD3E2A30798300B32EA8 /* ProfileImage.swift */,
+				625FDD5A2A31D66800B32EA8 /* ChatMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +145,7 @@
 				625FDD342A304EBC00B32EA8 /* StringUtil.swift */,
 				625FDD382A30571500B32EA8 /* IntUtil.swift */,
 				625FDD3A2A30578200B32EA8 /* DoubleUtil.swift */,
+				625FDD602A31E05800B32EA8 /* ViewUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -146,8 +164,30 @@
 			isa = PBXGroup;
 			children = (
 				625FDD3C2A3078F100B32EA8 /* ProfileImageView.swift */,
+				625FDD642A320F3700B32EA8 /* ScrollPositionReader.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		625FDD542A31D4EC00B32EA8 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				625FDD552A31D4FC00B32EA8 /* ChatView.swift */,
+				625FDD5C2A31D77F00B32EA8 /* ChatMessageView.swift */,
+				625FDD5E2A31D8D100B32EA8 /* MessageInputView.swift */,
+				625FDD622A31EEEB00B32EA8 /* ChatBubble.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		625FDD572A31D55100B32EA8 /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				62FFB1612A2F7F0500854476 /* WifiViewModel.swift */,
+				625FDD4D2A311BA700B32EA8 /* UserViewModel.swift */,
+				625FDD4F2A31B2DE00B32EA8 /* AppState.swift */,
+			);
+			path = AppState;
 			sourceTree = "<group>";
 		};
 		6286EA1D2A2E0830006F549D = {
@@ -216,6 +256,7 @@
 		62FFB1522A2F270600854476 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				625FDD542A31D4EC00B32EA8 /* Chat */,
 				625FDD512A31B6E500B32EA8 /* Components */,
 				625FDD292A302CE800B32EA8 /* Setting */,
 				6249F85E2A300B9D00E9E99D /* ChatList */,
@@ -235,9 +276,8 @@
 		62FFB1602A2F7EF900854476 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				62FFB1612A2F7F0500854476 /* WifiViewModel.swift */,
-				625FDD4D2A311BA700B32EA8 /* UserViewModel.swift */,
-				625FDD4F2A31B2DE00B32EA8 /* AppState.swift */,
+				625FDD572A31D55100B32EA8 /* AppState */,
+				625FDD582A31D56000B32EA8 /* ChatViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -313,18 +353,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				625FDD352A304EBC00B32EA8 /* StringUtil.swift in Sources */,
+				625FDD5F2A31D8D100B32EA8 /* MessageInputView.swift in Sources */,
+				625FDD612A31E05800B32EA8 /* ViewUtil.swift in Sources */,
 				625FDD452A30FF4E00B32EA8 /* DataManager.swift in Sources */,
 				62FFB1592A2F275E00854476 /* TestView.swift in Sources */,
+				625FDD5D2A31D77F00B32EA8 /* ChatMessageView.swift in Sources */,
+				625FDD5B2A31D66800B32EA8 /* ChatMessage.swift in Sources */,
 				625FDD302A3033F900B32EA8 /* BinaryProfileGenerator.swift in Sources */,
+				625FDD562A31D4FC00B32EA8 /* ChatView.swift in Sources */,
 				625FDD4A2A31133400B32EA8 /* UserController.swift in Sources */,
 				625FDD372A3055D800B32EA8 /* BinaryProfileView.swift in Sources */,
 				6249F8652A30137900E9E99D /* Mock.swift in Sources */,
 				62FFB1622A2F7F0500854476 /* WifiViewModel.swift in Sources */,
+				625FDD592A31D56000B32EA8 /* ChatViewModel.swift in Sources */,
 				6249F8622A300CFD00E9E99D /* ChatListItem.swift in Sources */,
 				62FFB15B2A2F45B400854476 /* Wifi.swift in Sources */,
 				62FFB15D2A2F626900854476 /* WifiState.swift in Sources */,
 				625FDD482A30FFDC00B32EA8 /* WifiTalk.xcdatamodeld in Sources */,
 				625FDD2D2A302DD500B32EA8 /* ChatHistoryItem.swift in Sources */,
+				625FDD632A31EEEB00B32EA8 /* ChatBubble.swift in Sources */,
 				625FDD4C2A31185400B32EA8 /* DataController.swift in Sources */,
 				6249F8602A300BAD00E9E99D /* ChatListView.swift in Sources */,
 				62FFB1512A2E17D000854476 /* WifiHelper.swift in Sources */,
@@ -333,6 +380,7 @@
 				625FDD3B2A30578200B32EA8 /* DoubleUtil.swift in Sources */,
 				625FDD392A30571500B32EA8 /* IntUtil.swift in Sources */,
 				625FDD3F2A30798300B32EA8 /* ProfileImage.swift in Sources */,
+				625FDD652A320F3700B32EA8 /* ScrollPositionReader.swift in Sources */,
 				625FDD2B2A302D2500B32EA8 /* SettingView.swift in Sources */,
 				6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */,
 				625FDD502A31B2DE00B32EA8 /* AppState.swift in Sources */,

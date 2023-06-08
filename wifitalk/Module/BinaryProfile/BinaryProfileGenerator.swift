@@ -6,15 +6,15 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct BinaryProfileGenerator {
     private static let prefix = "G"
     
-    static func generate49() -> BinaryProfile {
-        return BinaryProfile(
-            source:
-                Self.prefix + self.getRGB() + self.getDigits(7)
-        )
+    static func generateBase64() -> String {
+        let binary = BinaryProfile(source: Self.prefix + self.getRGB() + self.getDigits(7))
+        let view = BinaryProfileView(size: 200, profile: binary)
+        return view.asImage.jpegData(compressionQuality: 1)!.base64EncodedString()
     }
     
     static private func getRGB() -> String {

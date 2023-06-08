@@ -9,27 +9,22 @@ import SwiftUI
 
 struct ChatListItem: View {
     let wifi: Wifi
+    let user: User
     
     var body: some View {
-        
-        HStack {
-            VStack(alignment: .leading) {
-                Text(wifi.name)
-                    .bold()
-                Text(wifi.ssid)
+        NavigationLink(destination: ChatView(wifi: wifi, user: user)) {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(wifi.name)
+                        .bold()
+                        .foregroundColor(.black)
+                    Text(wifi.ssid)
+                        .foregroundColor(Color.gray)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
                     .foregroundColor(Color.gray)
-            }
-            Spacer()
-            Image(systemName: "chevron.right")
-                .foregroundColor(Color.gray)
-        }.padding()
-    }
-}
-
-struct ChatListItem_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatListItem(
-            wifi: Mock.wifiStates[0].wifi!
-        )
+            }.padding()
+        }
     }
 }
