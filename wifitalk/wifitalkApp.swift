@@ -9,14 +9,15 @@ import SwiftUI
 
 @main
 struct wifitalkApp: App {
-    @StateObject private var dataController = DataManager()
+    
+    let appState = AppState()
     
     var body: some Scene {
         WindowGroup {
             ChatListView()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
-                .environmentObject(WifiViewModel(wifiHelper: WifiHelperMock())
-            )
+                .environmentObject(appState)
+                .environmentObject(appState.wifiViewModel)
+                .environmentObject(appState.userViewModel)
         }
     }
 }

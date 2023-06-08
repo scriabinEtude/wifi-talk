@@ -8,7 +8,7 @@
 import CoreData
 
 class DataController {
-    private func saveContext(_ context: NSManagedObjectContext) {
+    internal func saveContext(_ context: NSManagedObjectContext) {
         if context.hasChanges {
             do {
                 try context.save()

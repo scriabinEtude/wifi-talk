@@ -13,18 +13,18 @@ class UserViewModel: ObservableObject {
     private let userController = DataManager.shared.user
     
     init() {
-        self.user = self.getUser()
+        getUser()
     }
     
-    func getUser() -> User {
-        return self.userController.fetch()
-            ?? self.userController.update(
-                    name: "",
-                    profileImage: BinaryProfileGenerator().generate49().source
-            )
+    func getUser() -> Void {
+        self.user = self.userController.fetch()
+                 ?? self.userController.update(
+                         name: "",
+                         profileImage: BinaryProfileGenerator().generate49().source
+                 )
     }
     
-    func updateUser(name: String?, profileImage: String?) -> User {
-        return self.userController.update(name: name, profileImage: profileImage)
+    func updateUser(name: String?, profileImage: String?) -> Void {
+        self.user = self.userController.update(name: name, profileImage: profileImage)
     }
 }
