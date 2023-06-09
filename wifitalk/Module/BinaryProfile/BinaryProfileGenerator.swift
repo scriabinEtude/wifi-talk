@@ -47,6 +47,6 @@ struct BinaryProfileGenerator {
     }
     
     static func isBinaryProfile(_ source: String) -> Bool {
-        return source.starts(with: Self.prefix)
+        return !source.starts(with: "http")
     }
 }

@@ -15,7 +15,17 @@ struct ChatListView: View {
         NavigationView {
             VStack(alignment: .leading, spacing: 50) {
                 VStack(alignment: .leading) {
-                    if wifiViewModel.wifiState.connected {
+                    if userViewModel.isCreating {
+                        HStack(spacing: 10) {
+                            ProgressView()
+                            Text("유저를 생성하는 중")
+                        }.padding()
+                    } else if userViewModel.user == nil {
+                        HStack(spacing: 10) {
+                            ProgressView()
+                            Text("유저 정보를 불러오는 중")
+                        }.padding()
+                    } else if wifiViewModel.wifiState.connected {
                         Label("현재 접속된 Wifi", systemImage: "wifi").padding()
                         ChatListItem(
                             wifi: wifiViewModel.wifiState.wifi!,
@@ -46,9 +56,12 @@ struct ChatListView: View {
                 NavigationLink(destination: { SettingView() }) {
                     HStack {
                         Text(userViewModel.user?.name ?? "").foregroundColor(Color.black).padding(.trailing, 5)
-                        ProfileImageView(withSource: userViewModel.user?.profileImage, size: 30)
+                        ProfileImageView(withBase64: userViewModel.user?.profileImage, size: 30)
                     }
                 }
+            }
+            .onAppear{
+                userViewModel.getUser()
             }
         }
     }

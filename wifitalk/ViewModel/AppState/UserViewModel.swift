@@ -9,19 +9,29 @@ import Foundation
 
 class UserViewModel: ObservableObject {
     @Published var user: User?
+    @Published var isCreating: Bool = false
     
     private let userController = DataManager.shared.user
     
-    init() {
-        getUser()
+    // for test
+    func reset() {
+        userController.delete()
     }
     
     func getUser() -> Void {
-        self.user = self.userController.fetch()
-                 ?? self.userController.update(
-                         name: "",
-                         profileImage: BinaryProfileGenerator.generateBase64()
-                 )
+        if let user = self.userController.fetch() {
+            self.user = user
+        } else {
+            isCreating = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.user = self.userController.update(
+                                name: "",
+                                profileImage: BinaryProfileGenerator.generateBase64()
+                            )
+                self.isCreating = false
+
+            }
+        }
     }
     
     func updateUser(name: String?, profileImage: String?) -> Void {

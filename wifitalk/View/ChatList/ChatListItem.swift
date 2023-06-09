@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ChatListItem: View {
+    @State var isSetUserName: Bool
     let wifi: Wifi
     let user: User
+    
+    init(wifi: Wifi, user: User) {
+        self.wifi = wifi
+        self.user = user
+        self.isSetUserName = user.name != nil
+    }
     
     var body: some View {
         NavigationLink(destination: ChatView(wifi: wifi, user: user)) {
@@ -24,7 +31,12 @@ struct ChatListItem: View {
                 Spacer()
                 Image(systemName: "chevron.right")
                     .foregroundColor(Color.gray)
-            }.padding()
+            }
+            .padding()
+            .onTapGesture {
+                
+            }
         }
     }
 }
+

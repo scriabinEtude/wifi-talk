@@ -14,7 +14,7 @@ struct SettingView: View {
     var body: some View {
         VStack(spacing: 50) {
             VStack {
-                ProfileImageView(withSource: userViewModel.user?.profileImage, size: 200)
+                ProfileImageView(withBase64: userViewModel.user?.profileImage, size: 200)
                 NavigationLink(destination: UpdateProfileView.init, label: {
                     Label("이미지 변경", systemImage: "pencil")
                 })

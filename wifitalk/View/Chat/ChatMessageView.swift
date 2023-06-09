@@ -11,9 +11,6 @@ struct ChatMessageView: View {
     let message: ChatMessage
     
     var body: some View {
-        Image(uiImage: ProfileImageView(withSource: message.profileImage, size: 30).asImage)
-            .frame(width: 30, height: 30)
-//        ProfileImageView(withSource: message.profileImage, size: 30)
         HStack {
             if message.isMine {
                 Spacer()
@@ -27,8 +24,7 @@ struct ChatMessageView: View {
                     .padding(.horizontal)
             } else {
                 HStack(alignment: .bottom) {
-//                    Image(uiImage: ProfileImageView(withSource: message.profileImage, size: 30).asImage)
-//                        .frame(width: 30, height: 30)
+                    ProfileImageView(withBase64: message.profileImage, size: 30)
                     Text(message.message)
                         .padding(12)
                         .background(Color(.systemGray5))

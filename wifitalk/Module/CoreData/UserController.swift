@@ -40,4 +40,10 @@ class UserController: DataController {
         self.saveContext(context)
         return user
     }
+    
+    func delete() {
+        guard let user = self.fetch() else { return }
+        self.context.delete(user)
+        self.saveContext(context)
+    }
 }

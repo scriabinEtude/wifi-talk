@@ -24,7 +24,7 @@ class ChatViewModel: ObservableObject {
                 name: user.name!,
                 profileImage: user.profileImage!,
                 uuid: user.uuid!,
-                isMine: false,
+                isMine: true,
                 message: message,
                 timestamp: Date()
             )

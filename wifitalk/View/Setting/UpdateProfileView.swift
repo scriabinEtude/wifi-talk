@@ -21,7 +21,7 @@ struct UpdateProfileView: View {
                             .padding(.trailing, 20)
                         Spacer()
                     }
-                    ProfileImageView(withSource: userViewModel.user?.profileImage, size: 50)
+                    ProfileImageView(withBase64: userViewModel.user?.profileImage, size: 50)
                 }.padding()
                 
                 VStack(alignment: .center) {
@@ -30,15 +30,14 @@ struct UpdateProfileView: View {
                             .font(.system(.title3))
                         Spacer()
                     }
-                    ProfileImageView(withSource: newProfile, size: 200)
+                    ProfileImageView(withBase64: newProfile, size: 200)
                     Button(action: generate) {
-                        Text("재생성")
+                        Text(newProfile == nil ? "생성하기" : "재생성")
                     }.padding(.top, 10)
                 }.padding()
                 Spacer()
             }
         }
-        .onAppear { generate() }
         .navigationTitle("이미지 변경")
         .toolbar {
             Button(action: saveProfile) {
@@ -52,7 +51,7 @@ struct UpdateProfileView: View {
 
 extension UpdateProfileView {
     func generate() {
-        self.newProfile = BinaryProfileGenerator.generate49().source
+        self.newProfile = BinaryProfileGenerator.generateBase64()
     }
     
     func saveProfile() {

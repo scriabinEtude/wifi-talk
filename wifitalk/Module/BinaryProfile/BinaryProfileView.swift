@@ -33,9 +33,3 @@ struct BinaryProfileView: View {
         }
     }
 }
-
-struct BinaryProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        BinaryProfileView(size: 100, profile: Mock.binaryProfile)
-    }
-}

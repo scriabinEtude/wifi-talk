@@ -16,7 +16,7 @@ struct ProfileImageView: View {
         self.size = size
     }
     
-    init(withSource source: String?, size: Double) {
+    init(withBase64 source: String?, size: Double) {
         if source == nil {
             self.init(profileImage: nil, size: size)
         } else {
@@ -27,17 +27,14 @@ struct ProfileImageView: View {
     var body: some View {
         if profileImage != nil {
             if profileImage!.isBinaryProfile {
-                BinaryProfileView(size: size, profile: profileImage!.binaryProfile!)
+                Image(uiImage: UIImage(data: Data(base64Encoded: profileImage!.source, options: .ignoreUnknownCharacters)!)!)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: size, height: size)
                     .clipShape(Circle())
                     .shadow(radius: 0.2)
             }
         }
         
-    }
-}
-
-struct ProfileImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileImageView(profileImage: Mock.profileImage, size: 200)
     }
 }
