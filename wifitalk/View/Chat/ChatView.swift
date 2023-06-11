@@ -24,6 +24,8 @@ struct ChatView: View {
                             ChatMessageView(message: message.wrappedValue)
                         }.onChange(of: vm.messages.count) { _ in
                             scrollToLast(proxy: proxy)
+                        }.onAppear {
+                            scrollToLast(proxy: proxy)
                         }
                     }
                 }

@@ -6,10 +6,10 @@
 //
 
 
+import FirebaseFirestore
 import FirebaseFirestoreSwift
-import 
 
-struct ChatMessage: Identifiable, Decodable {
+struct ChatMessage: Identifiable, Encodable, Decodable, Hashable {
     @DocumentID var id: String?
     
     let name: String
@@ -19,3 +19,4 @@ struct ChatMessage: Identifiable, Decodable {
     let message: String
     let timestamp: Timestamp
 }
+

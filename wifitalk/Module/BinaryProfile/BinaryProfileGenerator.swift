@@ -13,8 +13,10 @@ struct BinaryProfileGenerator {
     
     static func generateBase64() -> String {
         let binary = BinaryProfile(source: Self.prefix + self.getRGB() + self.getDigits(7))
-        let view = BinaryProfileView(size: 200, profile: binary)
-        return view.asImage.jpegData(compressionQuality: 1)!.base64EncodedString()
+        let view = BinaryProfileView(size: 80, profile: binary)
+        
+        let data = view.asImage.jpegData(compressionQuality: 1)!.base64EncodedString()
+        return data
     }
     
     static private func getRGB() -> String {

@@ -39,6 +39,9 @@
 		625FDD6D2A3485C600B32EA8 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD6C2A3485C600B32EA8 /* ChatRepository.swift */; };
 		625FDD7A2A34890100B32EA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD792A34890100B32EA8 /* Constants.swift */; };
 		625FDD7C2A348DE100B32EA8 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD7B2A348DE100B32EA8 /* LogUtil.swift */; };
+		625FDD802A359FD300B32EA8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 625FDD7F2A359FD300B32EA8 /* FirebaseFirestore */; };
+		625FDD822A359FD300B32EA8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 625FDD812A359FD300B32EA8 /* FirebaseFirestoreSwift */; };
+		625FDD842A35A24700B32EA8 /* QueryUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD832A35A24700B32EA8 /* QueryUtil.swift */; };
 		6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA292A2E0830006F549D /* wifitalkApp.swift */; };
 		6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA2B2A2E0830006F549D /* ContentView.swift */; };
 		6286EA2E2A2E0831006F549D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6286EA2D2A2E0831006F549D /* Assets.xcassets */; };
@@ -83,6 +86,7 @@
 		625FDD6C2A3485C600B32EA8 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		625FDD792A34890100B32EA8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		625FDD7B2A348DE100B32EA8 /* LogUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
+		625FDD832A35A24700B32EA8 /* QueryUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryUtil.swift; sourceTree = "<group>"; };
 		6286EA262A2E0830006F549D /* wifitalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wifitalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6286EA292A2E0830006F549D /* wifitalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wifitalkApp.swift; sourceTree = "<group>"; };
 		6286EA2B2A2E0830006F549D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				625FDD802A359FD300B32EA8 /* FirebaseFirestore in Frameworks */,
+				625FDD822A359FD300B32EA8 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +218,7 @@
 			children = (
 				625FDD6C2A3485C600B32EA8 /* ChatRepository.swift */,
 				625FDD792A34890100B32EA8 /* Constants.swift */,
+				625FDD832A35A24700B32EA8 /* QueryUtil.swift */,
 			);
 			path = Firestore;
 			sourceTree = "<group>";
@@ -335,6 +342,8 @@
 			);
 			name = wifitalk;
 			packageProductDependencies = (
+				625FDD7F2A359FD300B32EA8 /* FirebaseFirestore */,
+				625FDD812A359FD300B32EA8 /* FirebaseFirestoreSwift */,
 			);
 			productName = wifitalk;
 			productReference = 6286EA262A2E0830006F549D /* wifitalk.app */;
@@ -418,6 +427,7 @@
 				625FDD4C2A31185400B32EA8 /* DataController.swift in Sources */,
 				6249F8602A300BAD00E9E99D /* ChatListView.swift in Sources */,
 				62FFB1512A2E17D000854476 /* WifiHelper.swift in Sources */,
+				625FDD842A35A24700B32EA8 /* QueryUtil.swift in Sources */,
 				6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */,
 				625FDD3D2A3078F100B32EA8 /* ProfileImageView.swift in Sources */,
 				625FDD3B2A30578200B32EA8 /* DoubleUtil.swift in Sources */,
@@ -641,11 +651,24 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		625FDD7F2A359FD300B32EA8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 625FDD7D2A35989200B32EA8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		625FDD812A359FD300B32EA8 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 625FDD7D2A35989200B32EA8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		625FDD462A30FFDC00B32EA8 /* WifiTalk.xcdatamodeld */ = {
