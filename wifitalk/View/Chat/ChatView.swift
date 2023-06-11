@@ -10,6 +10,7 @@ import SwiftUI
 struct ChatView: View {
     @ObservedObject var vm: ChatViewModel
     @State var messageInput: String = ""
+    @State private var scrollViewContentOffset = CGFloat(0)
     
     init(wifi: Wifi, user: User) {
         vm = ChatViewModel(wifi: wifi, user: user)
@@ -19,7 +20,7 @@ struct ChatView: View {
         NavigationView {
             VStack {
                 ScrollViewReader { proxy in
-                    ScrollView {
+                    TrackableScrollView(.vertical, contentOffset: $scrollViewContentOffset, callback: scrollCallback) {
                         ForEach($vm.messages, id: \.self) { message in
                             ChatMessageView(message: message.wrappedValue)
                         }.onChange(of: vm.messages.count) { _ in
@@ -53,5 +54,10 @@ extension ChatView {
         if vm.messages.last != nil {
             proxy.scrollTo(vm.messages.last!)
         }
+    }
+    
+    func scrollCallback(size: CGFloat) {
+        guard size < 20 else { return }
+        vm.fetch()
     }
 }

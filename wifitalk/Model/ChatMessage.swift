@@ -15,7 +15,7 @@ struct ChatMessage: Identifiable, Encodable, Decodable, Hashable {
     let name: String
     let profileImage: String
     let uuid: String
-    let isMine: Bool
+    var isMine: Bool
     let message: String
     let timestamp: Timestamp
 }

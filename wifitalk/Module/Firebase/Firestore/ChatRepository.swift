@@ -8,10 +8,16 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-struct ChatRepository {
+class ChatRepository {
     let ssid: String
+    let user: User
     var cursor: DocumentSnapshot?
-    var limit = 40
+    var limit = 30
+    
+    init(ssid: String, user: User) {
+        self.ssid = ssid
+        self.user = user
+    }
     
     private var chatRef: CollectionReference {
         COLLECTION_CHATROOMS.document(self.ssid).collection(COLLECTION_CHATROOMS_CHATS_TITLE)
@@ -20,10 +26,14 @@ struct ChatRepository {
     func addMessageListener(completion: @escaping([ChatMessage]) -> Void) {
         let query = self.chatRef
                         .order(by: "timestamp", descending: true)
+                        .limit(to: limit)
         
         query.addSnapshotListener { snapshot, _ in
             guard let changes = snapshot?.documentChanges.filter({ $0.type == .added }) else { return }
-            var messages = changes.compactMap{ try? $0.document.data(as: ChatMessage.self) }
+            let messages = changes
+                .compactMap{ try? self.convertDataToMessage(doc: $0.document, user: self.user) }
+            
+            self.cursor = changes.last?.document
             completion(messages)
         }
     }
@@ -33,10 +43,17 @@ struct ChatRepository {
                         .order(by: "timestamp", descending: true)
                         .limit(to: limit)
         if cursor != nil {
-            query = query.start(atDocument: cursor!)
+            query = query.start(afterDocument: cursor!)
         }
         
-        query.getDocuments(completion: completion)
+        query.getDocuments { snapshot, error in
+            if let error = error { LogUtil.error(#function, error: error); return }
+            let messages = snapshot?.documents
+                .compactMap{ try? self.convertDataToMessage(doc: $0, user: self.user) }
+            
+            self.cursor = snapshot?.documents.last
+            completion(messages!)
+        }
     }
     func getLastMessage(completion: @escaping(ChatMessage) -> Void) {
         let query = self.chatRef
@@ -54,5 +71,11 @@ struct ChatRepository {
         } catch {
             LogUtil.error(#function, error: error)
         }
+    }
+    
+    private func convertDataToMessage(doc: QueryDocumentSnapshot, user: User) throws -> ChatMessage{
+        var message = try? doc.data(as: ChatMessage.self)
+        message!.isMine = message!.uuid == user.uuid
+        return message!
     }
 }

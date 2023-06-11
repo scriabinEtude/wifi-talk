@@ -42,6 +42,8 @@
 		625FDD802A359FD300B32EA8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 625FDD7F2A359FD300B32EA8 /* FirebaseFirestore */; };
 		625FDD822A359FD300B32EA8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 625FDD812A359FD300B32EA8 /* FirebaseFirestoreSwift */; };
 		625FDD842A35A24700B32EA8 /* QueryUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD832A35A24700B32EA8 /* QueryUtil.swift */; };
+		625FDD882A3651A100B32EA8 /* TrackableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD872A3651A100B32EA8 /* TrackableScrollView.swift */; };
+		625FDD8A2A3651E100B32EA8 /* ScrollOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD892A3651E100B32EA8 /* ScrollOffsetPreferenceKey.swift */; };
 		6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA292A2E0830006F549D /* wifitalkApp.swift */; };
 		6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA2B2A2E0830006F549D /* ContentView.swift */; };
 		6286EA2E2A2E0831006F549D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6286EA2D2A2E0831006F549D /* Assets.xcassets */; };
@@ -87,6 +89,9 @@
 		625FDD792A34890100B32EA8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		625FDD7B2A348DE100B32EA8 /* LogUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
 		625FDD832A35A24700B32EA8 /* QueryUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryUtil.swift; sourceTree = "<group>"; };
+		625FDD862A36509900B32EA8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		625FDD872A3651A100B32EA8 /* TrackableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackableScrollView.swift; sourceTree = "<group>"; };
+		625FDD892A3651E100B32EA8 /* ScrollOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetPreferenceKey.swift; sourceTree = "<group>"; };
 		6286EA262A2E0830006F549D /* wifitalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wifitalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6286EA292A2E0830006F549D /* wifitalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wifitalkApp.swift; sourceTree = "<group>"; };
 		6286EA2B2A2E0830006F549D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -178,6 +183,7 @@
 		625FDD512A31B6E500B32EA8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				625FDD852A36508600B32EA8 /* TrackableScrollView */,
 				625FDD3C2A3078F100B32EA8 /* ProfileImageView.swift */,
 				625FDD642A320F3700B32EA8 /* ScrollPositionReader.swift */,
 			);
@@ -228,6 +234,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		625FDD852A36508600B32EA8 /* TrackableScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				625FDD862A36509900B32EA8 /* README.md */,
+				625FDD872A3651A100B32EA8 /* TrackableScrollView.swift */,
+				625FDD892A3651E100B32EA8 /* ScrollOffsetPreferenceKey.swift */,
+			);
+			path = TrackableScrollView;
 			sourceTree = "<group>";
 		};
 		6286EA1D2A2E0830006F549D = {
@@ -434,12 +450,14 @@
 				625FDD392A30571500B32EA8 /* IntUtil.swift in Sources */,
 				625FDD3F2A30798300B32EA8 /* ProfileImage.swift in Sources */,
 				625FDD652A320F3700B32EA8 /* ScrollPositionReader.swift in Sources */,
+				625FDD882A3651A100B32EA8 /* TrackableScrollView.swift in Sources */,
 				625FDD2B2A302D2500B32EA8 /* SettingView.swift in Sources */,
 				6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */,
 				625FDD502A31B2DE00B32EA8 /* AppState.swift in Sources */,
 				625FDD4E2A311BA700B32EA8 /* UserViewModel.swift in Sources */,
 				625FDD7C2A348DE100B32EA8 /* LogUtil.swift in Sources */,
 				625FDD532A31C07C00B32EA8 /* UpdateProfileView.swift in Sources */,
+				625FDD8A2A3651E100B32EA8 /* ScrollOffsetPreferenceKey.swift in Sources */,
 				625FDD7A2A34890100B32EA8 /* Constants.swift in Sources */,
 				625FDD322A30346D00B32EA8 /* BinaryProfile.swift in Sources */,
 			);

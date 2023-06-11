@@ -8,12 +8,13 @@
 import Firebase
 
 extension Query {
+    
     func getDocuments<T: Decodable> (completion: @escaping([T]) -> Void) {
         self.getDocuments { snapshot, error in
             if let error = error { LogUtil.error(#function, error: error); return }
             guard let documents = snapshot?.documents else { return }
-            let chats = documents.compactMap { try? $0.data(as: T.self) }
-            completion(chats)
+            let models = documents.compactMap { try? $0.data(as: T.self) }
+            completion(models)
         }
     }
     

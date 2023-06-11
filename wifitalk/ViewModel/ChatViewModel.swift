@@ -13,24 +13,35 @@ class ChatViewModel: ObservableObject {
     let user: User
     let repo: ChatRepository
     
+    @Published var isFetcing = true
+    @Published var allMessageAreShown = false
+    
     init(wifi: Wifi, user: User) {
         self.wifi = wifi
         self.user = user
-        self.repo = ChatRepository(ssid: wifi.ssid)
-//        load()
+        self.repo = ChatRepository(ssid: wifi.ssid, user: user)
         addMessageListener()
         
     }
     
     func addMessageListener() {
-        self.repo.addMessageListener {
+        self.isFetcing = true
+        self.repo.addMessageListener() {
             self.messages.append(contentsOf: $0.reversed())
+            self.isFetcing = false
         }
     }
     
-    func load() {
+    func fetch() {
+        if self.isFetcing || self.allMessageAreShown { return }
+        self.isFetcing = true
         self.repo.fetchMessages {
-            self.messages.append(contentsOf: $0.reversed())
+            if $0.isEmpty {
+                self.allMessageAreShown = true
+                return
+            }
+            self.messages.insert(contentsOf: $0.reversed(), at: 0)
+            self.isFetcing = false
         }
     }
     

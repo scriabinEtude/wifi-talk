@@ -10,7 +10,9 @@ import SwiftUI
 struct ScrollPositionReader<Content: View>: View {
     @Binding var size: CGSize
     
+    let callback: ((CGSize) -> Void)?
     let content: () -> Content
+    
     var body: some View {
         ZStack {
             content().background(
@@ -24,6 +26,7 @@ struct ScrollPositionReader<Content: View>: View {
         }
         .onPreferenceChange(SizePreferenceKey.self) { preferences in
             self.size = preferences
+            if let callback = callback { callback(self.size) }
         }
     }
 }
