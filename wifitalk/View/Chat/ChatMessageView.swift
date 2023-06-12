@@ -26,22 +26,27 @@ struct ChatMessageView: View {
             }
             HStack {
                 if vm.message.isMine {
-                    Spacer()
-                    Text(vm.message.message)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 8)
-                        .background(Color.blue)
-                        .font(.system(size: 15))
-                        .clipShape(ChatBubble(isMine: true))
-                        .foregroundColor(.white)
-                        .padding(.leading, 100)
-                        .padding(.horizontal)
+                    HStack(alignment: .bottom) {
+                        Spacer()
+                        if vm.isShowingTimeDisplay {
+                            TimeDisplay(vm.timeDisplay)
+                        }
+                        Text(vm.message.message)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(Color.blue)
+                            .font(.system(size: 15))
+                            .clipShape(ChatBubble(isMine: true))
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal)
+                    .padding(.leading, 80)
                 } else {
                     HStack(alignment: .top) {
                         if vm.isNotShowingProfile {
                             Spacer().frame(width: 43)
                             HStack(alignment: .bottom) {
-                                Message(vm.message)
+                                OpponentMessage(vm.message)
                                 if vm.isShowingTimeDisplay {
                                     TimeDisplay(vm.timeDisplay)
                                 }
@@ -53,7 +58,7 @@ struct ChatMessageView: View {
                                     Text(vm.message.name)
                                         .font(.system(size: 15))
                                         .foregroundColor(.gray)
-                                    Message(vm.message)
+                                    OpponentMessage(vm.message)
                                 }
                                 if vm.isShowingTimeDisplay {
                                     TimeDisplay(vm.timeDisplay)
@@ -72,7 +77,7 @@ struct ChatMessageView: View {
     }
 }
 
-private struct Message: View {
+private struct OpponentMessage: View {
     let message: ChatMessage
     init(_ message: ChatMessage) {
         self.message = message
