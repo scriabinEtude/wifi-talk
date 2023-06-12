@@ -12,6 +12,15 @@ struct ChatMessageView: View {
     
     var body: some View {
         VStack {
+            if vm.isFirstChatOnDate {
+                Text(vm.dateDisplay)
+                    .font(.system(size: 12))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 4)
+                    .background(Color(.systemGray2))
+                    .cornerRadius(50)
+            }
             if vm.isShowingProfile {
                 Spacer().frame(height: 12)
             }

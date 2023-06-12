@@ -19,6 +19,11 @@ struct ChatMessageViewModel {
     
     var isShowingTimeDisplay: Bool { isOver1Min(after) }
     var timeDisplay: String { format(message, fs: "a h:mm") }
+    var dateDisplay: String { format(message, fs: "yyyy년 M월 d일 E요일") }
+    
+    var isFirstChatOnDate: Bool {
+        !isSameDate(before, fs: "yyyy-MM-dd")
+    }
     
     init(message: ChatMessage, before: ChatMessage?, after: ChatMessage?) {
         self.message = message
@@ -31,9 +36,12 @@ struct ChatMessageViewModel {
     }
     
     private func isOver1Min(_ target: ChatMessage?) -> Bool {
-        if target == nil { return true }
-        let fs = "yyyy-MM-dd HH:mm"
-        return format(message, fs: fs) != format(target!, fs: fs)
+        !isSameDate(target, fs: "yyyy-MM-dd HH:mm")
+    }
+    
+    private func isSameDate(_ target: ChatMessage?, fs formatString: String) -> Bool {
+        guard let target = target else { return false }
+        return format(message, fs: formatString) == format(target, fs: formatString)
     }
     
 }
