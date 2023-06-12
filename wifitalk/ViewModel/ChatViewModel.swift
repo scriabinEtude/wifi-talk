@@ -21,9 +21,12 @@ class ChatViewModel: ObservableObject {
         self.user = user
         self.repo = ChatRepository(ssid: wifi.ssid, user: user)
         addMessageListener()
-        
     }
-    
+}
+
+// MARK: - Fetchs
+
+extension ChatViewModel {
     func addMessageListener() {
         self.isFetcing = true
         self.repo.addMessageListener() {
@@ -58,4 +61,27 @@ class ChatViewModel: ObservableObject {
         self.repo.sendMessage(message: message) { message in }
     }
     func getLast() {}
+}
+
+
+// MARK: - Helpers
+
+extension ChatViewModel {
+    func getBeforeMessage(_ message: ChatMessage) -> ChatMessage? {
+        guard
+            let index = messages.firstIndex(of: message),
+                index > 0
+        else { return nil }
+        
+        return messages[index-1]
+    }
+    
+    func getAfterMessage(_ message: ChatMessage) -> ChatMessage? {
+        guard
+            let index = messages.firstIndex(of: message),
+                index < messages.count - 1
+        else { return nil }
+        
+        return messages[index+1]
+    }
 }

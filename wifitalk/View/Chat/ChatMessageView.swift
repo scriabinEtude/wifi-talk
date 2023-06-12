@@ -8,35 +8,87 @@
 import SwiftUI
 
 struct ChatMessageView: View {
-    let message: ChatMessage
+    let vm: ChatMessageViewModel
     
     var body: some View {
-        HStack {
-            if message.isMine {
-                Spacer()
-                Text(message.message)
-                    .padding(12)
-                    .background(Color.blue)
-                    .font(.system(size: 15))
-                    .clipShape(ChatBubble(isMine: true))
-                    .foregroundColor(.white)
-                    .padding(.leading, 100)
-                    .padding(.horizontal)
-            } else {
-                HStack(alignment: .bottom) {
-                    ProfileImageView(withBase64: message.profileImage, size: 30)
-                    Text(message.message)
-                        .padding(12)
-                        .background(Color(.systemGray5))
+        VStack {
+            if vm.isShowingProfile {
+                Spacer().frame(height: 12)
+            }
+            HStack {
+                if vm.message.isMine {
+                    Spacer()
+                    Text(vm.message.message)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
                         .font(.system(size: 15))
-                        .clipShape(ChatBubble(isMine: false))
-                        .foregroundColor(.black)
+                        .clipShape(ChatBubble(isMine: true))
+                        .foregroundColor(.white)
+                        .padding(.leading, 100)
+                        .padding(.horizontal)
+                } else {
+                    HStack(alignment: .top) {
+                        if vm.isNotShowingProfile {
+                            Spacer().frame(width: 43)
+                            HStack(alignment: .bottom) {
+                                Message(vm.message)
+                                if vm.isShowingTimeDisplay {
+                                    TimeDisplay(vm.timeDisplay)
+                                }
+                            }
+                        } else {
+                            ProfileImageView(withBase64: vm.message.profileImage, size: 35)
+                            HStack(alignment: .bottom) {
+                                VStack(alignment: .leading, spacing: 6) {
+                                    Text(vm.message.name)
+                                        .font(.system(size: 15))
+                                        .foregroundColor(.gray)
+                                    Message(vm.message)
+                                }
+                                if vm.isShowingTimeDisplay {
+                                    TimeDisplay(vm.timeDisplay)
+                                }
+                            }
+                        }
+                        
+                    }
+                    .padding(.horizontal)
+                    .padding(.trailing, 80)
+                    
+                    Spacer()
                 }
-                .padding(.horizontal)
-                .padding(.trailing, 80)
-                
-                Spacer()
             }
         }
+    }
+}
+
+private struct Message: View {
+    let message: ChatMessage
+    init(_ message: ChatMessage) {
+        self.message = message
+    }
+    
+    var body: some View {
+        Text(message.message)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(Color(.systemGray5))
+            .font(.system(size: 15))
+            .clipShape(ChatBubble(isMine: false))
+            .foregroundColor(.black)
+    }
+}
+
+private struct TimeDisplay: View {
+    let timeDisplay: String
+    init(_ timeDisplay: String) {
+        self.timeDisplay = timeDisplay
+    }
+    
+    var body: some View {
+        Text(timeDisplay)
+            .font(.system(size: 12))
+            .foregroundColor(.gray)
     }
 }

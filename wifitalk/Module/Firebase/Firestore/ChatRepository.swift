@@ -75,7 +75,8 @@ class ChatRepository {
     
     private func convertDataToMessage(doc: QueryDocumentSnapshot, user: User) throws -> ChatMessage{
         var message = try? doc.data(as: ChatMessage.self)
-        message!.isMine = message!.uuid == user.uuid
+//        message!.isMine = message!.uuid == user.uuid
+        message!.isMine = false
         return message!
     }
 }

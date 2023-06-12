@@ -14,11 +14,11 @@ struct ChatBubble: Shape {
         let path = UIBezierPath(
             roundedRect: rect,
             byRoundingCorners: [
-                .topLeft,
-                .topRight,
-                isMine ? .bottomLeft : .bottomRight
+                isMine ? .topLeft : .topRight,
+                .bottomLeft,
+                .bottomRight
             ],
-            cornerRadii: CGSize(width: 16, height: 16))
+            cornerRadii: CGSize(width: 12, height: 12))
         
         return Path(path.cgPath)
     }

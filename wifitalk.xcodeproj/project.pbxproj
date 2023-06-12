@@ -44,6 +44,8 @@
 		625FDD842A35A24700B32EA8 /* QueryUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD832A35A24700B32EA8 /* QueryUtil.swift */; };
 		625FDD882A3651A100B32EA8 /* TrackableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD872A3651A100B32EA8 /* TrackableScrollView.swift */; };
 		625FDD8A2A3651E100B32EA8 /* ScrollOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD892A3651E100B32EA8 /* ScrollOffsetPreferenceKey.swift */; };
+		625FDD8F2A37241700B32EA8 /* ChatMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD8E2A37241700B32EA8 /* ChatMessageViewModel.swift */; };
+		625FDD912A37286300B32EA8 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FDD902A37286300B32EA8 /* DateUtil.swift */; };
 		6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA292A2E0830006F549D /* wifitalkApp.swift */; };
 		6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6286EA2B2A2E0830006F549D /* ContentView.swift */; };
 		6286EA2E2A2E0831006F549D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6286EA2D2A2E0831006F549D /* Assets.xcassets */; };
@@ -92,6 +94,8 @@
 		625FDD862A36509900B32EA8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		625FDD872A3651A100B32EA8 /* TrackableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackableScrollView.swift; sourceTree = "<group>"; };
 		625FDD892A3651E100B32EA8 /* ScrollOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetPreferenceKey.swift; sourceTree = "<group>"; };
+		625FDD8E2A37241700B32EA8 /* ChatMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageViewModel.swift; sourceTree = "<group>"; };
+		625FDD902A37286300B32EA8 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		6286EA262A2E0830006F549D /* wifitalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wifitalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6286EA292A2E0830006F549D /* wifitalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wifitalkApp.swift; sourceTree = "<group>"; };
 		6286EA2B2A2E0830006F549D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				625FDD3A2A30578200B32EA8 /* DoubleUtil.swift */,
 				625FDD602A31E05800B32EA8 /* ViewUtil.swift */,
 				625FDD7B2A348DE100B32EA8 /* LogUtil.swift */,
+				625FDD902A37286300B32EA8 /* DateUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 			children = (
 				625FDD572A31D55100B32EA8 /* AppState */,
 				625FDD582A31D56000B32EA8 /* ChatViewModel.swift */,
+				625FDD8E2A37241700B32EA8 /* ChatMessageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -447,8 +453,10 @@
 				6286EA2C2A2E0830006F549D /* ContentView.swift in Sources */,
 				625FDD3D2A3078F100B32EA8 /* ProfileImageView.swift in Sources */,
 				625FDD3B2A30578200B32EA8 /* DoubleUtil.swift in Sources */,
+				625FDD912A37286300B32EA8 /* DateUtil.swift in Sources */,
 				625FDD392A30571500B32EA8 /* IntUtil.swift in Sources */,
 				625FDD3F2A30798300B32EA8 /* ProfileImage.swift in Sources */,
+				625FDD8F2A37241700B32EA8 /* ChatMessageViewModel.swift in Sources */,
 				625FDD652A320F3700B32EA8 /* ScrollPositionReader.swift in Sources */,
 				625FDD882A3651A100B32EA8 /* TrackableScrollView.swift in Sources */,
 				625FDD2B2A302D2500B32EA8 /* SettingView.swift in Sources */,
@@ -585,10 +593,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = wifitalk/wifitalk.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"wifitalk/Preview Content\"";
+				DEVELOPMENT_TEAM = JQPN5757XG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = wifitalk/Info.plist;
@@ -601,6 +611,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.escher.wifitalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -616,10 +627,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = wifitalk/wifitalk.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"wifitalk/Preview Content\"";
+				DEVELOPMENT_TEAM = JQPN5757XG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = wifitalk/Info.plist;
@@ -632,6 +645,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.escher.wifitalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

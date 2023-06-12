@@ -22,7 +22,16 @@ struct ChatView: View {
                 ScrollViewReader { proxy in
                     TrackableScrollView(.vertical, contentOffset: $scrollViewContentOffset, callback: scrollCallback) {
                         ForEach($vm.messages, id: \.self) { message in
-                            ChatMessageView(message: message.wrappedValue)
+                            let message = message.wrappedValue
+                            let before = vm.getBeforeMessage(message)
+                            let after = vm.getAfterMessage(message)
+                            let vm = ChatMessageViewModel(
+                                message: message,
+                                before: before,
+                                after: after
+                            )
+                            
+                            ChatMessageView(vm: vm)
                         }.onChange(of: vm.messages.count) { _ in
                             scrollToLast(proxy: proxy)
                         }.onAppear {

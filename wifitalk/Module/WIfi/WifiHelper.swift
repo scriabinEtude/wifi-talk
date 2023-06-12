@@ -20,6 +20,19 @@ protocol WifiHelper {
 class WifiHelperMock: WifiHelper {
     
     func getWifiState() -> WifiState {
+//        var ssid: String?
+//        print(CNCopySupportedInterfaces() as NSArray?)
+//        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+//            for interface in interfaces {
+//                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+//                    print(interfaceInfo)
+//                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+//                    break
+//                }
+//            }
+//        }
+//        print(ssid)
+        
         return Mock.wifiStates[0]
 //        if Calendar.current.component(.second, from: Date()) / 2 % 2 == 0 {
 //            return Mock.wifiStates[0]
