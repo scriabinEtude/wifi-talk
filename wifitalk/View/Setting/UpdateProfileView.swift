@@ -10,6 +10,7 @@ import SwiftUI
 struct UpdateProfileView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @State var newProfile: String?
+    @State var testProfile: BinaryProfile?
     
     var body: some View {
         NavigationView {
@@ -31,6 +32,9 @@ struct UpdateProfileView: View {
                         Spacer()
                     }
                     ProfileImageView(withBase64: newProfile, size: 200)
+                    if testProfile != nil {
+                        BinaryProfileView(size: 200, profile: testProfile!)
+                    }
                     Button(action: generate) {
                         Text(newProfile == nil ? "생성하기" : "재생성")
                     }.padding(.top, 10)
@@ -51,7 +55,10 @@ struct UpdateProfileView: View {
 
 extension UpdateProfileView {
     func generate() {
-        self.newProfile = BinaryProfileGenerator.generateBase64()
+        self.testProfile = BinaryProfileGenerator.generateBinaryProfile()
+        guard let profile = self.testProfile else { return }
+        self.newProfile = BinaryProfileGenerator.generateBase64(binaryProfile: profile)
+        print(self.newProfile?.count.description)
     }
     
     func saveProfile() {

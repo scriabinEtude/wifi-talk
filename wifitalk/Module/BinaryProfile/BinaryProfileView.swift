@@ -47,8 +47,8 @@ extension BinaryProfileView {
         format.scale = 3 // Ensures 3x-scale images. You can customise this however you like.
         let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
         return renderer.image { _ in
-            view?.resizableSnapshotView(from: controller.view.bounds, afterScreenUpdates: true, withCapInsets: .zero)!
-            .drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+//            view?.resizableSnapshotView(from: controller.view.bounds, afterScreenUpdates: true, withCapInsets: .zero)!
+            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
         }
     }
 }

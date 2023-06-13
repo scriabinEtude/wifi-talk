@@ -15,4 +15,9 @@ struct ProfileImage {
         self.source = source
         self.isBinaryProfile = BinaryProfileGenerator.isBinaryProfile(source)
     }
+    
+    init(binaryProfile: BinaryProfile) {
+        self.source = binaryProfile.source
+        self.isBinaryProfile = true
+    }
 }

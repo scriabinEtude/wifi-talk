@@ -9,19 +9,21 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class ChatRepository {
-    let ssid: String
+    let wifi: Wifi
     let user: User
     var cursor: DocumentSnapshot?
     var limit = 30
     
-    init(ssid: String, user: User) {
-        self.ssid = ssid
+    init(wifi: Wifi, user: User) {
+        self.wifi = wifi
         self.user = user
     }
     
     private var chatRef: CollectionReference {
-        COLLECTION_CHATROOMS.document(self.ssid).collection(COLLECTION_CHATROOMS_CHATS_TITLE)
+        COLLECTION_CHATROOMS.document(self.uid).collection(COLLECTION_CHATROOMS_CHATS_TITLE)
     }
+    
+    private var uid: String { wifi.bssid + wifi.ssid }
     
     func addMessageListener(completion: @escaping([ChatMessage]) -> Void) {
         let query = self.chatRef

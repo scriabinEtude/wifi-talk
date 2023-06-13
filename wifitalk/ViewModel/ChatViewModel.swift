@@ -19,7 +19,7 @@ class ChatViewModel: ObservableObject {
     init(wifi: Wifi, user: User) {
         self.wifi = wifi
         self.user = user
-        self.repo = ChatRepository(ssid: wifi.ssid, user: user)
+        self.repo = ChatRepository(wifi: wifi, user: user)
         addMessageListener()
     }
 }

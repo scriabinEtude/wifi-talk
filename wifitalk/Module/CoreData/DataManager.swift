@@ -15,6 +15,10 @@ class DataManager {
         UserController(context: self.container.viewContext)
     }
     
+    var wifiHistory: WifiHistoryController {
+        WifiHistoryController(context: self.container.viewContext)
+    }
+    
     init() {
         container.loadPersistentStores { description, error in
             if let error = error {

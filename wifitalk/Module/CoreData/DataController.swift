@@ -7,7 +7,24 @@
 
 import CoreData
 
-class DataController {
+protocol DataController {
+    associatedtype Model: NSManagedObject
+    var context: NSManagedObjectContext { get }
+}
+
+extension DataController {
+    
+    internal func fetchAll() -> [Model] {
+        let request = Model.fetchRequest() as! NSFetchRequest<Model>
+        
+        do {
+            return try self.context.fetch(request)
+        } catch let error {
+            print("Error fetching Users \(error)")
+            return []
+        }
+    }
+    
     internal func saveContext(_ context: NSManagedObjectContext) {
         if context.hasChanges {
             do {

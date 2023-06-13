@@ -7,35 +7,69 @@
 
 import SwiftUI
 import Combine
+import CoreLocation
 
 class WifiViewModel: ObservableObject {
+    
+    typealias Output = Publishers.Autoconnect<Timer.TimerPublisher>.Output
+    
+    // MARK: - Properties
+    
+    // wifi
     @Published var wifiState: WifiState
-    @Published var wifiHistory = [Wifi]()
+    @Published var wifiHistory = [WifiHistory]()
     var isWifiStateChanged: Bool
     let wifiHelper: WifiHelper
     var wifiPublisherCancellable: AnyCancellable?
+    
+    // permission
+    let locationPermission: LocationPermission
+    @Published var isLocationPermission: Bool = false
+    
+    // history
+    private let historyController = DataManager.shared.wifiHistory
     
     init(wifiHelper: WifiHelper) {
         self.wifiState = WifiState(connected: false, wifi: nil)
         self.isWifiStateChanged = false
         self.wifiHelper = wifiHelper
-        setWifiStatePublisher()
-        setWifiHistory()
+        self.locationPermission = LocationPermission()
+        start()
     }
     
-    func setWifiStatePublisher() {
+    func start() {
+        self.locationPermission.requestAuthorization(always: true)
+        setWifiStatePublisher()
+        getWifiHistories()
+    }
+    
+    func requestLocationPermissionFromSetting() {
+        self.locationPermission.requestAuthorizationFromSettingScreen()
+    }
+    
+    func getWifiHistories() {
+        wifiHistory = self.historyController.fetch()
+    }
+    
+    func updateWifiHistory(_ wifi: Wifi) {
+        self.wifiHistory = self.historyController.update(wifi)
+    }
+    
+    private func setWifiStatePublisher() {
         wifiPublisherCancellable = Timer
             .publish(every: 1, on: .main, in: .common)
             .autoconnect()
-            .sink { _ in
-                let wifiState = self.wifiHelper.getWifiState()
-                self.isWifiStateChanged = self.wifiState != wifiState
-                self.wifiState = wifiState
-            }
+            .sink(receiveValue: setWifiState)
     }
     
-    func setWifiHistory() {
-        wifiHistory = self.wifiHelper.fetchWifis()
+    private func setWifiState(receiveValue: Output) {
+        if self.isLocationPermission {
+            let wifiState = self.wifiHelper.getWifiState()
+            self.isWifiStateChanged = self.wifiState != wifiState
+            self.wifiState = wifiState
+        } else {
+            self.isLocationPermission = self.locationPermission.isAuthorised
+        }
     }
         
 }

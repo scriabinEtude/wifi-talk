@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
+    @EnvironmentObject var wifiViewModel: WifiViewModel
     @ObservedObject var vm: ChatViewModel
     @State var messageInput: String = ""
     @State private var scrollViewContentOffset = CGFloat(0)
@@ -46,7 +47,10 @@ struct ChatView: View {
                 )
             }
         }
-        .navigationTitle(vm.wifi.name)
+        .navigationTitle(vm.wifi.ssid)
+        .onAppear {
+            wifiViewModel.updateWifiHistory(vm.wifi)
+        }
     }
 }
 

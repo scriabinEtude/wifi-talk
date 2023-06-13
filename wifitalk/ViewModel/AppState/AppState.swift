@@ -8,6 +8,6 @@
 import Foundation
 
 class AppState: ObservableObject {
-    var wifiViewModel = WifiViewModel(wifiHelper: WifiHelperMock())
+    var wifiViewModel = WifiViewModel(wifiHelper: WifiHelper())
     var userViewModel = UserViewModel()
 }

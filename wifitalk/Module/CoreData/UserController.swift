@@ -11,23 +11,16 @@ import UIKit
 
 class UserController: DataController {
     
-    let context: NSManagedObjectContext
+    typealias Model = User
+    var context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext) {
         self.context = context
     }
     
     func fetch() -> User? {
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        var fetchedUsers: [User] = []
-        
-        do {
-            fetchedUsers = try self.context.fetch(request)
-            return fetchedUsers.isEmpty ? nil : fetchedUsers[0]
-        } catch let error {
-            print("Error fetching Users \(error)")
-            return nil
-        }
+        let users = self.fetchAll()
+        return users.isEmpty ? nil : users[0]
     }
     
     func update(name: String?, profileImage: String?) -> User {

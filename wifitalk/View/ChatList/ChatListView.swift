@@ -15,7 +15,14 @@ struct ChatListView: View {
         NavigationView {
             VStack(alignment: .leading, spacing: 50) {
                 VStack(alignment: .leading) {
-                    if userViewModel.isCreating {
+                    if !wifiViewModel.isLocationPermission {
+                        HStack(spacing: 10) {
+                            Label("위치 권한이 없습니다.", systemImage: "location.slash.fill")
+                            Button(action: wifiViewModel.requestLocationPermissionFromSetting) {
+                                Text("재설정")
+                            }
+                        }.padding()
+                    } else if userViewModel.isCreating {
                         HStack(spacing: 10) {
                             ProgressView()
                             Text("유저를 생성하는 중")
@@ -41,7 +48,7 @@ struct ChatListView: View {
                     Label("연결 기록", systemImage: "clock.arrow.circlepath").padding()
                     
                     
-                    List(wifiViewModel.wifiHistory, id: \.ssid) { wifi in
+                    List(wifiViewModel.wifiHistory) { wifi in
                         ChatHistoryItem(wifi: wifi)
                     }
                     .listStyle(.plain)
@@ -62,6 +69,7 @@ struct ChatListView: View {
             }
             .onAppear{
                 userViewModel.getUser()
+                wifiViewModel.getWifiHistories()
             }
         }
     }

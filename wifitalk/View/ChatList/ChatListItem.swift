@@ -8,24 +8,21 @@
 import SwiftUI
 
 struct ChatListItem: View {
-    @State var isSetUserName: Bool
     let wifi: Wifi
     let user: User
     
     init(wifi: Wifi, user: User) {
         self.wifi = wifi
         self.user = user
-        self.isSetUserName = user.name != nil
     }
     
     var body: some View {
         NavigationLink(destination: ChatView(wifi: wifi, user: user)) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(wifi.name)
-                        .bold()
-                        .foregroundColor(.black)
                     Text(wifi.ssid)
+                        .bold()
+                    Text(wifi.bssid)
                         .foregroundColor(Color.gray)
                 }
                 Spacer()
@@ -33,10 +30,9 @@ struct ChatListItem: View {
                     .foregroundColor(Color.gray)
             }
             .padding()
-            .onTapGesture {
-                
-            }
+            .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
     }
 }
 

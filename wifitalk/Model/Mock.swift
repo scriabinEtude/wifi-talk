@@ -9,8 +9,8 @@ import Foundation
 
 struct Mock {
     static let wifiStates = [
-        WifiState(connected: true, wifi: Wifi(name: "test name 1", ssid: "test ssid 1")),
-        WifiState(connected: true, wifi: Wifi(name: "test name 2", ssid: "test ssid 2")),
+        WifiState(connected: true, wifi: Wifi(ssid: "test name 1", bssid: "test bssid 1")),
+        WifiState(connected: true, wifi: Wifi(ssid: "test name 2", bssid: "test bssid 2")),
         WifiState(connected: false, wifi: nil),
     ]
 }

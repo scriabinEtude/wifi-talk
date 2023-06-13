@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct ChatHistoryItem: View {
-    let wifi: Wifi
+    let wifi: WifiHistory
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(wifi.name)
-            Text(wifi.ssid).foregroundColor(Color.gray)
+            HStack {
+                Text(wifi.ssid!)
+                Spacer()
+                Text(wifi.updatedAt!.format("M월 d일"))
+                    .foregroundColor(Color.gray)
+                    .font(.system(size: 12))
+            }
+            Text(wifi.bssid!).foregroundColor(Color.gray)
         }
-    }
-}
-
-struct ChatHistoryItem_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatHistoryItem(wifi: Mock.wifiStates[0].wifi!)
     }
 }

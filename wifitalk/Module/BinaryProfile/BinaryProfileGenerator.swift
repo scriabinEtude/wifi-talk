@@ -11,11 +11,17 @@ import SwiftUI
 struct BinaryProfileGenerator {
     private static let prefix = "G"
     
+    static func generateBinaryProfile() -> BinaryProfile {
+        return BinaryProfile(source: Self.prefix + self.getRGB() + self.getDigits(7))
+    }
+    
     static func generateBase64() -> String {
-        let binary = BinaryProfile(source: Self.prefix + self.getRGB() + self.getDigits(7))
-        let view = BinaryProfileView(size: 80, profile: binary)
-        
-        let data = view.asImage.jpegData(compressionQuality: 1)!.base64EncodedString()
+        return generateBase64(binaryProfile: generateBinaryProfile())
+    }
+    
+    static func generateBase64(binaryProfile: BinaryProfile) -> String {
+        let view = BinaryProfileView(size: 80, profile: binaryProfile)
+        let data = view.asImage.jpegData(compressionQuality: 0.4)!.base64EncodedString()
         return data
     }
     
