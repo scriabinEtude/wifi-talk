@@ -13,13 +13,16 @@ struct ChatMessageView: View {
     var body: some View {
         VStack {
             if vm.isFirstChatOnDate {
-                Text(vm.dateDisplay)
-                    .font(.system(size: 12))
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 4)
-                    .background(Color(.systemGray2))
-                    .cornerRadius(50)
+                VStack {
+                    Text(vm.dateDisplay)
+                        .font(.system(size: 12))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 4)
+                        .background(Color(.systemGray2))
+                        .cornerRadius(50)
+                }
+                .padding(.vertical, 12)
             }
             if vm.isShowingProfile {
                 Spacer().frame(height: 12)
@@ -52,7 +55,10 @@ struct ChatMessageView: View {
                                 }
                             }
                         } else {
-                            ProfileImageView(withBase64: vm.message.profileImage, size: 35)
+                            ProfileImageView(
+                                source: vm.message.profileImage,
+                                size: 35
+                            )
                             HStack(alignment: .bottom) {
                                 VStack(alignment: .leading, spacing: 6) {
                                     Text(vm.message.name)
@@ -87,10 +93,9 @@ private struct OpponentMessage: View {
         Text(message.message)
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
-            .background(Color(.systemGray5))
+            .background(Color(.systemGray3))
             .font(.system(size: 15))
             .clipShape(ChatBubble(isMine: false))
-            .foregroundColor(.black)
     }
 }
 

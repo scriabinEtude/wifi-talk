@@ -51,6 +51,9 @@ struct ChatView: View {
         .onAppear {
             wifiViewModel.updateWifiHistory(vm.wifi)
         }
+        .onTapGesture {
+            endEditing()
+        }
     }
 }
 

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct UpdateProfileView: View {
     @EnvironmentObject var userViewModel: UserViewModel
-    @State var newProfile: String?
-    @State var testProfile: BinaryProfile?
+    @State var newProfile: BinaryProfile?
+    @State var base64: String?
     
     var body: some View {
         NavigationView {
@@ -22,7 +22,10 @@ struct UpdateProfileView: View {
                             .padding(.trailing, 20)
                         Spacer()
                     }
-                    ProfileImageView(withBase64: userViewModel.user?.profileImage, size: 50)
+                    ProfileImageView(
+                        source: userViewModel.user?.binarySource,
+                        size: 200
+                    )
                 }.padding()
                 
                 VStack(alignment: .center) {
@@ -31,9 +34,11 @@ struct UpdateProfileView: View {
                             .font(.system(.title3))
                         Spacer()
                     }
-                    ProfileImageView(withBase64: newProfile, size: 200)
-                    if testProfile != nil {
-                        BinaryProfileView(size: 200, profile: testProfile!)
+                    if newProfile != nil {
+                        ProfileImageView(
+                            source: newProfile!.source,
+                            size: 200
+                        )
                     }
                     Button(action: generate) {
                         Text(newProfile == nil ? "생성하기" : "재생성")
@@ -46,7 +51,7 @@ struct UpdateProfileView: View {
         .toolbar {
             Button(action: saveProfile) {
                 Text("변경")
-            }.disabled(self.newProfile == self.userViewModel.user?.profileImage)
+            }.disabled(self.newProfile?.source == self.userViewModel.user?.binarySource)
         }
     }
 }
@@ -55,14 +60,16 @@ struct UpdateProfileView: View {
 
 extension UpdateProfileView {
     func generate() {
-        self.testProfile = BinaryProfileGenerator.generateBinaryProfile()
-        guard let profile = self.testProfile else { return }
-        self.newProfile = BinaryProfileGenerator.generateBase64(binaryProfile: profile)
-        print(self.newProfile?.count.description)
+        self.newProfile = BinaryProfileGenerator.generateBinaryProfile()
+        self.base64 = BinaryProfileGenerator.generateBase64(binaryProfile: newProfile!)
     }
     
     func saveProfile() {
-        userViewModel.updateUser(name: nil, profileImage: self.newProfile)
+        userViewModel.updateUser(
+            name: nil,
+            binarySource: self.newProfile!.source,
+            profileImage: self.base64
+        )
     }
 }
 

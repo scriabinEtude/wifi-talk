@@ -8,7 +8,9 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-class ChatRepository {
+class ChatRepository: FirebaseRepository {
+    typealias Model = ChatMessage
+    
     let wifi: Wifi
     let user: User
     var cursor: DocumentSnapshot?
@@ -19,14 +21,14 @@ class ChatRepository {
         self.user = user
     }
     
-    private var chatRef: CollectionReference {
+    internal var ref: CollectionReference {
         COLLECTION_CHATROOMS.document(self.uid).collection(COLLECTION_CHATROOMS_CHATS_TITLE)
     }
     
     private var uid: String { wifi.bssid + wifi.ssid }
     
     func addMessageListener(completion: @escaping([ChatMessage]) -> Void) {
-        let query = self.chatRef
+        let query = self.ref
                         .order(by: "timestamp", descending: true)
                         .limit(to: limit)
         
@@ -41,7 +43,7 @@ class ChatRepository {
     }
     
     func fetchMessages(completion: @escaping([ChatMessage]) -> Void) {
-        var query = self.chatRef
+        var query = self.ref
                         .order(by: "timestamp", descending: true)
                         .limit(to: limit)
         if cursor != nil {
@@ -58,21 +60,11 @@ class ChatRepository {
         }
     }
     func getLastMessage(completion: @escaping(ChatMessage) -> Void) {
-        let query = self.chatRef
+        let query = self.ref
                         .order(by: "timestamp", descending: true)
                         .limit(to: 1)
         
         query.getDocument(completion: completion)
-    }
-    
-    func sendMessage(message: ChatMessage, completion: @escaping(ChatMessage) -> Void) {
-        do {
-            _ = try self.chatRef
-                .addDocument(from: message)
-            completion(message)
-        } catch {
-            LogUtil.error(#function, error: error)
-        }
     }
     
     private func convertDataToMessage(doc: QueryDocumentSnapshot, user: User) throws -> ChatMessage{

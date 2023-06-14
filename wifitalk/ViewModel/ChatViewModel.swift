@@ -58,7 +58,7 @@ extension ChatViewModel {
             timestamp: Timestamp(date: Date())
         )
         
-        self.repo.sendMessage(message: message) { message in }
+        self.repo.addDocument(model: message) { message in }
     }
     func getLast() {}
 }

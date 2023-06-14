@@ -7,17 +7,26 @@
 
 import Foundation
 
+enum ProfileImageType {
+    case binary, base64, network
+    
+    static func getType(_ source: String) -> ProfileImageType {
+        if BinaryProfileGenerator.isBinaryProfile(source) {
+            return .binary
+        } else if source.starts(with: "http") {
+            return .network
+        } else {
+            return .base64
+        }
+    }
+}
+
 struct ProfileImage {
     let source: String
-    var isBinaryProfile: Bool
+    var type: ProfileImageType
     
     init(source: String) {
         self.source = source
-        self.isBinaryProfile = BinaryProfileGenerator.isBinaryProfile(source)
-    }
-    
-    init(binaryProfile: BinaryProfile) {
-        self.source = binaryProfile.source
-        self.isBinaryProfile = true
+        self.type = ProfileImageType.getType(source)
     }
 }

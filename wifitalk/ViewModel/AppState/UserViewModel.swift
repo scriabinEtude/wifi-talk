@@ -24,9 +24,14 @@ class UserViewModel: ObservableObject {
         } else {
             isCreating = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                let name = ""
+                let binaryProfile = BinaryProfileGenerator.generateBinaryProfile()
+                let profileImage = BinaryProfileGenerator.generateBase64(binaryProfile: binaryProfile)
+                
                 self.user = self.userController.update(
-                                name: "",
-                                profileImage: BinaryProfileGenerator.generateBase64()
+                                name: name,
+                                binarySource: binaryProfile.source,
+                                profileImage: profileImage
                             )
                 self.isCreating = false
 
@@ -34,7 +39,11 @@ class UserViewModel: ObservableObject {
         }
     }
     
-    func updateUser(name: String?, profileImage: String?) -> Void {
-        self.user = self.userController.update(name: name, profileImage: profileImage)
+    func updateUser(name: String?, binarySource: String?,  profileImage: String?) -> Void {
+        self.user = self.userController.update(
+            name: name,
+            binarySource: binarySource,
+            profileImage: profileImage
+        )
     }
 }

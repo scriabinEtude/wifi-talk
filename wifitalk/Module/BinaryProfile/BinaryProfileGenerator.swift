@@ -20,8 +20,8 @@ struct BinaryProfileGenerator {
     }
     
     static func generateBase64(binaryProfile: BinaryProfile) -> String {
-        let view = BinaryProfileView(size: 80, profile: binaryProfile)
-        let data = view.asImage.jpegData(compressionQuality: 0.4)!.base64EncodedString()
+        let view = BinaryProfileView(size: 50, profile: binaryProfile)
+        let data = view.asImage.jpegData(compressionQuality: 0.3)!.base64EncodedString()
         return data
     }
     
@@ -55,6 +55,6 @@ struct BinaryProfileGenerator {
     }
     
     static func isBinaryProfile(_ source: String) -> Bool {
-        return !source.starts(with: "http")
+        return source.starts(with: Self.prefix)
     }
 }

@@ -62,15 +62,22 @@ struct ChatListView: View {
             .toolbar {
                 NavigationLink(destination: { SettingView() }) {
                     HStack {
-                        Text(userViewModel.user?.name ?? "").foregroundColor(Color.black).padding(.trailing, 5)
-                        ProfileImageView(withBase64: userViewModel.user?.profileImage, size: 30)
+                        Text(userViewModel.user?.name ?? "")
+                            .padding(.trailing, 5)
+                        ProfileImageView(
+                            source: userViewModel.user?.profileImage,
+                            size: 30
+                        )
                     }
                 }
+                .buttonStyle(.plain)
             }
             .onAppear{
                 userViewModel.getUser()
                 wifiViewModel.getWifiHistories()
             }
+            .navigationTitle("채팅")
+            
         }
     }
 }

@@ -23,12 +23,13 @@ class UserController: DataController {
         return users.isEmpty ? nil : users[0]
     }
     
-    func update(name: String?, profileImage: String?) -> User {
+    func update(name: String?, binarySource: String?, profileImage: String?) -> User {
         let user = self.fetch() ?? User(context: context)
         if user.uuid == nil {
             user.uuid = UIDevice.current.identifierForVendor?.uuidString
         }
         if name != nil { user.name = name }
+        if binarySource != nil { user.binarySource = binarySource }
         if profileImage != nil { user.profileImage = profileImage }
         self.saveContext(context)
         return user
