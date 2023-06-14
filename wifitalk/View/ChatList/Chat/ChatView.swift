@@ -13,8 +13,8 @@ struct ChatView: View {
     @State var messageInput: String = ""
     @State private var scrollViewContentOffset = CGFloat(0)
     
-    init(wifi: Wifi, user: User) {
-        vm = ChatViewModel(wifi: wifi, user: user)
+    init(viewModel: ChatViewModel) {
+        self.vm = viewModel
     }
     
     var body: some View {

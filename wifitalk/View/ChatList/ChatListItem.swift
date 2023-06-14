@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatListItem: View {
+    @ObservedObject var vm = ChatListItemViewModel()
     let wifi: Wifi
     let user: User
     
@@ -17,12 +18,16 @@ struct ChatListItem: View {
     }
     
     var body: some View {
-        NavigationLink(destination: ChatView(wifi: wifi, user: user)) {
+        NavigationLink(destination: ChatView(viewModel:ChatViewModel(
+            wifi: wifi,
+            user: user,
+            delegate: vm
+        ))) {
             HStack {
                 VStack(alignment: .leading) {
                     Text(wifi.ssid)
                         .bold()
-                    Text(wifi.bssid)
+                    Text(vm.lastMessage)
                         .foregroundColor(Color.gray)
                 }
                 Spacer()

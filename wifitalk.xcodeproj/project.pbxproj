@@ -15,6 +15,7 @@
 		6222D8DD2A39D550001628E3 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D8DC2A39D550001628E3 /* Report.swift */; };
 		6222D8E02A39D905001628E3 /* StorageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D8DF2A39D905001628E3 /* StorageUtil.swift */; };
 		6222D8E22A39DB30001628E3 /* FirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D8E12A39DB30001628E3 /* FirebaseRepository.swift */; };
+		6222D8E42A39F1C8001628E3 /* ChatListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D8E32A39F1C8001628E3 /* ChatListItemViewModel.swift */; };
 		6249F8602A300BAD00E9E99D /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6249F85F2A300BAD00E9E99D /* ChatListView.swift */; };
 		6249F8622A300CFD00E9E99D /* ChatListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6249F8612A300CFD00E9E99D /* ChatListItem.swift */; };
 		6249F8652A30137900E9E99D /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6249F8642A30137900E9E99D /* Mock.swift */; };
@@ -75,6 +76,7 @@
 		6222D8DC2A39D550001628E3 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		6222D8DF2A39D905001628E3 /* StorageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtil.swift; sourceTree = "<group>"; };
 		6222D8E12A39DB30001628E3 /* FirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepository.swift; sourceTree = "<group>"; };
+		6222D8E32A39F1C8001628E3 /* ChatListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListItemViewModel.swift; sourceTree = "<group>"; };
 		6249F85F2A300BAD00E9E99D /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		6249F8612A300CFD00E9E99D /* ChatListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListItem.swift; sourceTree = "<group>"; };
 		6249F8642A30137900E9E99D /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				625FDD582A31D56000B32EA8 /* ChatViewModel.swift */,
 				625FDD8E2A37241700B32EA8 /* ChatMessageViewModel.swift */,
 				6222D8D22A39BA7C001628E3 /* ReportViewModel.swift */,
+				6222D8E32A39F1C8001628E3 /* ChatListItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				625FDD8F2A37241700B32EA8 /* ChatMessageViewModel.swift in Sources */,
 				6222D8E02A39D905001628E3 /* StorageUtil.swift in Sources */,
 				625FDD652A320F3700B32EA8 /* ScrollPositionReader.swift in Sources */,
+				6222D8E42A39F1C8001628E3 /* ChatListItemViewModel.swift in Sources */,
 				625FDD882A3651A100B32EA8 /* TrackableScrollView.swift in Sources */,
 				625FDD2B2A302D2500B32EA8 /* SettingView.swift in Sources */,
 				6286EA2A2A2E0830006F549D /* wifitalkApp.swift in Sources */,

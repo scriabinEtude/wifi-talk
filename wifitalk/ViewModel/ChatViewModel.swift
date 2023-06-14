@@ -12,14 +12,16 @@ class ChatViewModel: ObservableObject {
     @Published var messages = [ChatMessage]()
     let user: User
     let repo: ChatRepository
+    let delegate: ChatViewModelDelegate
     
     @Published var isFetcing = true
     @Published var allMessageAreShown = false
     
-    init(wifi: Wifi, user: User) {
+    init(wifi: Wifi, user: User, delegate: ChatViewModelDelegate) {
         self.wifi = wifi
         self.user = user
         self.repo = ChatRepository(wifi: wifi, user: user)
+        self.delegate = delegate
         addMessageListener()
     }
 }
@@ -31,6 +33,7 @@ extension ChatViewModel {
         self.isFetcing = true
         self.repo.addMessageListener() {
             self.messages.append(contentsOf: $0.reversed())
+            self.delegate.onListenNewMessages($0)
             self.isFetcing = false
         }
     }
@@ -84,4 +87,11 @@ extension ChatViewModel {
         
         return messages[index+1]
     }
+}
+
+
+// MARK: - Delegate
+
+protocol ChatViewModelDelegate {
+    func onListenNewMessages(_ messages: [ChatMessage])
 }

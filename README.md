@@ -33,3 +33,8 @@
 ### Links
 
 - [초안 기획 스케치](https://ovenapp.io/project/83Rcrlzv9EwDmIvBKybY5fD65kIoQKeF#uOKG6)
+
+### 문제해결
+
+- 프로필 이미지 생성
+- 메모리 leak
