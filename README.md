@@ -1,6 +1,9 @@
-# 와이파이 톡 - SwiftUI
+# 와이파이 톡
 
 와이파이에 연결된 사람끼리 채팅이 가능한 서비스
+
+IOS - SwiftUI
+Android - Flutter
 
 </br>
 </br>
