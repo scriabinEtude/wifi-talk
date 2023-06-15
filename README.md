@@ -2,8 +2,9 @@
 
 와이파이에 연결된 사람끼리 채팅이 가능한 서비스
 
-IOS - SwiftUI
-Android - Flutter
+IOS - SwiftUI\
+Android - Flutter\
+이 앱은 스터디를 위한 용도로써 IOS는 Native로 제작하였습니다.
 
 </br>
 </br>
