@@ -20,7 +20,7 @@ extension DataController {
         do {
             return try self.context.fetch(request)
         } catch let error {
-            print("Error fetching Users \(error)")
+            LogUtil.error(#function, error: error)
             return []
         }
     }

@@ -21,10 +21,11 @@ class WifiViewModel: ObservableObject {
     var isWifiStateChanged: Bool
     let wifiHelper: WifiHelper
     var wifiPublisherCancellable: AnyCancellable?
+    private var wifiRefreshTime = 0.2
     
     // permission
     let locationPermission: LocationPermission
-    @Published var isLocationPermission: Bool = false
+//    @Published var isLocationPermission: Bool = false
     
     // history
     private let historyController = DataManager.shared.wifiHistory
@@ -57,22 +58,25 @@ class WifiViewModel: ObservableObject {
     
     private func setWifiStatePublisher() {
         wifiPublisherCancellable = Timer
-            .publish(every: 1, on: .main, in: .common)
+            .publish(every: wifiRefreshTime, on: .main, in: .common)
             .autoconnect()
             .sink(receiveValue: setWifiState)
     }
     
     private func setWifiState(receiveValue: Output) {
-        if self.isLocationPermission {
+        if self.locationPermission.isAuthorised {
             let wifiState = self.wifiHelper.getWifiState()
             if self.wifiState != wifiState {
                 self.isWifiStateChanged = true
                 self.wifiState = wifiState
+                self.setWifiRefreshTime()
             }
-            
-        } else {
-            self.isLocationPermission = self.locationPermission.isAuthorised
         }
     }
         
+    private func setWifiRefreshTime() {
+        self.wifiRefreshTime = wifiState.connected ? 1.0 : 0.2
+        self.wifiPublisherCancellable?.cancel()
+        self.setWifiStatePublisher()
+    }
 }

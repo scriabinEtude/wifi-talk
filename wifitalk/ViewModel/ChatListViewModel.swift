@@ -18,7 +18,9 @@ extension ChatListViewModel {
     private func setChatViewModel() {
         guard
             let user = self.user,
-            let wifi = self.wifi
+            let wifi = self.wifi,
+            self.chatViewModel?.wifi != self.wifi,
+            self.chatViewModel?.user != self.user
         else { return }
         self.chatViewModel = ChatViewModel(
             wifi: wifi,

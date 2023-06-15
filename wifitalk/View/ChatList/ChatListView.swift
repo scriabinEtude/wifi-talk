@@ -17,7 +17,7 @@ struct ChatListView: View {
         NavigationView {
             VStack(alignment: .leading, spacing: 50) {
                 VStack(alignment: .leading) {
-                    if !wifiViewModel.isLocationPermission {
+                    if !wifiViewModel.locationPermission.isAuthorised {
                         HStack(spacing: 10) {
                             Label("위치 권한이 없습니다.", systemImage: "location.slash.fill")
                             Button(action: wifiViewModel.requestLocationPermissionFromSetting) {

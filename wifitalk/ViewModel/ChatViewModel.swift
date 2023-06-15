@@ -36,7 +36,6 @@ extension ChatViewModel {
             self.messages.append(contentsOf: $0.reversed())
             self.setChatPreview(messages: $0)
             self.isFetcing = false
-            print(#function)
         }
     }
     

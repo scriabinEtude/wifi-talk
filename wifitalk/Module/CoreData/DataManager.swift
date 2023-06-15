@@ -22,7 +22,7 @@ class DataManager {
     init() {
         container.loadPersistentStores { description, error in
             if let error = error {
-                print("Core Data Failed to load: \(error.localizedDescription)")
+                LogUtil.error("Core Data Failed to load", error: error)
             }
         }
     }
