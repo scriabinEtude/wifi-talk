@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var wifiViewModel: WifiViewModel
     @ObservedObject var vm: ChatViewModel
     @State var messageInput: String = ""
@@ -49,6 +50,11 @@ struct ChatView: View {
         }
         .onTapGesture {
             endEditing()
+        }
+        .onReceive(wifiViewModel.$wifiState) { wifiState in
+            if wifiState.wifi != vm.wifi {
+                presentationMode.wrappedValue.dismiss()
+            }
         }
     }
 }
