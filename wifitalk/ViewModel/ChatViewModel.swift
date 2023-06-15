@@ -1,8 +1,8 @@
 //
-//  ChatViewModel.swift
+//  WifiChatViewModel.swift
 //  wifitalk
 //
-//  Created by escher on 2023/06/08.
+//  Created by escher on 2023/06/15.
 //
 
 import Firebase
@@ -12,16 +12,17 @@ class ChatViewModel: ObservableObject {
     @Published var messages = [ChatMessage]()
     let user: User
     let repo: ChatRepository
-    let delegate: ChatViewModelDelegate
     
     @Published var isFetcing = true
     @Published var allMessageAreShown = false
     
-    init(wifi: Wifi, user: User, delegate: ChatViewModelDelegate) {
+    @Published var last: ChatMessage?
+    var lastMessage: String { last?.message ?? "" }
+    
+    init(wifi: Wifi, user: User) {
         self.wifi = wifi
         self.user = user
         self.repo = ChatRepository(wifi: wifi, user: user)
-        self.delegate = delegate
         addMessageListener()
     }
 }
@@ -31,10 +32,11 @@ class ChatViewModel: ObservableObject {
 extension ChatViewModel {
     func addMessageListener() {
         self.isFetcing = true
-        self.repo.addMessageListener() {
+        self.repo.addMessageListener() { [unowned self] in
             self.messages.append(contentsOf: $0.reversed())
-            self.delegate.onListenNewMessages($0)
+            self.setChatPreview(messages: $0)
             self.isFetcing = false
+            print(#function)
         }
     }
     
@@ -63,7 +65,6 @@ extension ChatViewModel {
         
         self.repo.addDocument(model: message) { message in }
     }
-    func getLast() {}
 }
 
 
@@ -87,11 +88,11 @@ extension ChatViewModel {
         
         return messages[index+1]
     }
+    
+    private func setChatPreview(messages: [ChatMessage]) {
+        self.last = messages.first
+    }
 }
 
 
-// MARK: - Delegate
 
-protocol ChatViewModelDelegate {
-    func onListenNewMessages(_ messages: [ChatMessage])
-}

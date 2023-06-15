@@ -11,6 +11,8 @@ struct ChatListView: View {
     @EnvironmentObject var wifiViewModel: WifiViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     
+    @ObservedObject var vm = ChatListViewModel()
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 50) {
@@ -32,11 +34,10 @@ struct ChatListView: View {
                             ProgressView()
                             Text("유저 정보를 불러오는 중")
                         }.padding()
-                    } else if wifiViewModel.wifiState.connected {
+                    } else if wifiViewModel.wifiState.connected && vm.chatViewModel != nil {
                         Label("현재 접속된 Wifi", systemImage: "wifi").padding()
                         ChatListItem(
-                            wifi: wifiViewModel.wifiState.wifi!,
-                            user: userViewModel.user!
+                            vm: vm.chatViewModel!
                         )
                     } else {
                         Label("Wifi 없음", systemImage: "wifi.slash").padding()
@@ -46,18 +47,11 @@ struct ChatListView: View {
                 
                 VStack(alignment: .leading) {
                     Label("연결 기록", systemImage: "clock.arrow.circlepath").padding()
-                    
-                    
                     List(wifiViewModel.wifiHistory) { wifi in
                         ChatHistoryItem(wifi: wifi)
-                    }
-                    .listStyle(.plain)
-                    
+                    }.listStyle(.plain) 
                     Spacer()
                 }
-                
-                
-                
             }
             .toolbar {
                 NavigationLink(destination: { SettingView() }) {
@@ -77,13 +71,9 @@ struct ChatListView: View {
                 wifiViewModel.getWifiHistories()
             }
             .navigationTitle("채팅")
+            .onReceive(wifiViewModel.$wifiState, perform: vm.setWifi)
+            .onReceive(userViewModel.$user, perform: vm.setUser)
             
         }
-    }
-}
-
-struct ChatListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatListView()
     }
 }

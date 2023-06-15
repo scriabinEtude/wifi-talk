@@ -32,7 +32,8 @@ class ChatRepository: FirebaseRepository {
                         .order(by: "timestamp", descending: true)
                         .limit(to: limit)
         
-        query.addSnapshotListener { snapshot, _ in
+        query.addSnapshotListener { [weak self] snapshot, _ in
+            guard let self = self else { return }
             guard let changes = snapshot?.documentChanges.filter({ $0.type == .added }) else { return }
             let messages = changes
                 .compactMap{ try? self.convertDataToMessage(doc: $0.document, user: self.user) }

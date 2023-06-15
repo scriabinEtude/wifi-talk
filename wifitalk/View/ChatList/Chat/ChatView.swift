@@ -13,10 +13,6 @@ struct ChatView: View {
     @State var messageInput: String = ""
     @State private var scrollViewContentOffset = CGFloat(0)
     
-    init(viewModel: ChatViewModel) {
-        self.vm = viewModel
-    }
-    
     var body: some View {
         NavigationView {
             VStack {

@@ -65,8 +65,11 @@ class WifiViewModel: ObservableObject {
     private func setWifiState(receiveValue: Output) {
         if self.isLocationPermission {
             let wifiState = self.wifiHelper.getWifiState()
-            self.isWifiStateChanged = self.wifiState != wifiState
-            self.wifiState = wifiState
+            if self.wifiState != wifiState {
+                self.isWifiStateChanged = true
+                self.wifiState = wifiState
+            }
+            
         } else {
             self.isLocationPermission = self.locationPermission.isAuthorised
         }
